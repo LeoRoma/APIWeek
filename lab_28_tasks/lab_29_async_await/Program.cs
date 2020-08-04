@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace lab_29_async_await
 {
     class Program
     {
         static Stopwatch s = new Stopwatch();
+        static List<string> fileOutput3 = new List<string>();
+        static List<string> fileOutput4 = new List<string>();
+
         static void Main(string[] args)
         {
             // Sync code ...Line by line
@@ -32,7 +38,7 @@ namespace lab_29_async_await
             File.Delete("data.txt");
             if (!File.Exists("data.txt"))
             {
-                for (int i = 0; i < 10000; i++)
+                for (int i = 0; i < 1000; i++)
                 {
                     File.AppendAllText("data.txt", $"Adding a new line to text file at {DateTime.Now}\n");
                 }
@@ -71,7 +77,23 @@ namespace lab_29_async_await
             string fileOutput2 = stringbuilder.ToString();
             Console.WriteLine($"Stringbuilder to string took {s.ElapsedMilliseconds}");
 
+            // Async read - basic FileReadAsync
+            s.Restart();
+            ReadTextFileToArrayAsync();
+            Console.WriteLine($"Async File Read took {s.ElapsedMilliseconds} with {fileOutput3.Count} records");
 
+            // Async read - streamreader
+            //Thread.Sleep(3000);
+            StreamReadTextFileAsync();
+            Console.WriteLine($"Async StreamReader took {s.ElapsedMilliseconds} with {fileOutput4.Count} records");
+
+            // Final lab - get result but can you turn this into a proper async overnight?
+            // (This way only partly works - tasks overnight to improve it)
+            s.Restart();
+            // This returns a 'task'
+            var arrayOutPut = ReturnTextFileToArrayAsync();
+            Console.WriteLine($"Async array returned in {s.ElapsedMilliseconds} with {arrayOutPut.Result.Length} records");
+           
         }
         
         static string[] ReadTextFileToArray()
@@ -79,7 +101,31 @@ namespace lab_29_async_await
             var array = File.ReadAllLines("data.txt");
             return array;
         }
+
+        static async void ReadTextFileToArrayAsync()
+        {
+            var array = await File.ReadAllLinesAsync("data.txt");
+            fileOutput3 = array.ToList();
+        }
       
+        // This one returns data with Task<T> structure
+        static async Task<string[]> ReturnTextFileToArrayAsync()
+        {
+            var array = await File.ReadAllLinesAsync("data.txt");
+            return array;
+        }
+
+        static async void StreamReadTextFileAsync()
+        {
+            using (var reader = new StreamReader("data.txt"))
+            {
+                while (!reader.EndOfStream)
+                {
+                    fileOutput4.Add(await reader.ReadLineAsync());
+                }
+
+            }
+        }
    }
 
 }
