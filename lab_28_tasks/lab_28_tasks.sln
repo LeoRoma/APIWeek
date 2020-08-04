@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_28b_task_array", "lab_2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_28c_task_parallel_processing", "lab_28c_task_parallel_processing\lab_28c_task_parallel_processing.csproj", "{BE81C811-6D1D-49C4-A045-5638719D707E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_29_async_await", "lab_29_async_await\lab_29_async_await.csproj", "{9E033AC6-E49C-4BA2-9095-3837CB6D7F33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{BE81C811-6D1D-49C4-A045-5638719D707E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE81C811-6D1D-49C4-A045-5638719D707E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE81C811-6D1D-49C4-A045-5638719D707E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E033AC6-E49C-4BA2-9095-3837CB6D7F33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E033AC6-E49C-4BA2-9095-3837CB6D7F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E033AC6-E49C-4BA2-9095-3837CB6D7F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E033AC6-E49C-4BA2-9095-3837CB6D7F33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
