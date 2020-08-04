@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,7 +15,7 @@ namespace lab_28c_task_parallel_processing
         {
             // C# has a library to help with task 'parallel' processing
 
-            // Firstly ==> running methods in parallel
+            // Firstly ==> running methods in parallel with Parallel.Invoke
 
             Action instance01 = OvernightTask01;
             Action instance02 = OvernightTask02;
@@ -43,7 +45,28 @@ namespace lab_28c_task_parallel_processing
                 });
             }
 
-            Console.WriteLine($"All completed at{ s.ElapsedMilliseconds}");
+            // Parallel for
+            Parallel.For(0, 10, 
+                i => {
+                    Thread.Sleep(7);
+                    Console.WriteLine(($"Parallel for Job {i} - running background processing"));
+                }
+            );
+
+            // Parallel foreach
+            var stringArray = new string[] { "hey", "there", "I", "am", "string" };
+            Parallel.ForEach(stringArray,
+                (item) => { 
+                    Console.WriteLine($"Processing string array item {item} with a length of {item.Length}"); 
+                }
+            );
+
+            // Parallel LINQ from database
+            var customers = new List<string>(); // Imagine list from Northwind
+            // LINQ as parallel
+            var processingOutPut = customers.AsParallel();
+
+            Console.WriteLine($"All completed at { s.ElapsedMilliseconds}");
         }
 
         static void OvernightTask01()
