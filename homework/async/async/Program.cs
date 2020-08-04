@@ -10,8 +10,6 @@ namespace async
         static Stopwatch s = new Stopwatch();
         static void Main(string[] args)
         {
-            //Async -> to avoid to wait if a method complete to run and starts another, with Async is possible to let them run in the same time
-
             s.Start();
             callMethod();
             Console.ReadKey();
@@ -53,7 +51,7 @@ namespace async
 
         static void Method3(string count)
         {
-            Console.WriteLine("Total count is " + count);
+            Console.WriteLine(count);
         }
     }
 }
