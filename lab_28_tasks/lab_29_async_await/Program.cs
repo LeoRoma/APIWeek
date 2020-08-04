@@ -15,7 +15,7 @@ namespace lab_29_async_await
         static Stopwatch s = new Stopwatch();
         static List<string> fileOutput3 = new List<string>();
         static List<string> fileOutput4 = new List<string>();
-
+        static string[] arrayOutPut = new string[1000];
         static void Main(string[] args)
         {
             // Sync code ...Line by line
@@ -111,9 +111,15 @@ namespace lab_29_async_await
         // This one returns data with Task<T> structure
         static async Task<string[]> ReturnTextFileToArrayAsync()
         {
-            var array = await File.ReadAllLinesAsync("data.txt");
-            return array;
+            using (StreamReader reader = new StreamReader("data.txt"))
+            {
+                // Reads all characters from the current position to the end of the stream asynchronously    
+                // and returns them as one string.    
+                arrayOutPut = await File.ReadAllLinesAsync("data.txt");
+            }
+            return arrayOutPut;
         }
+
 
         static async void StreamReadTextFileAsync()
         {
