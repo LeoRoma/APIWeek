@@ -89,7 +89,7 @@ namespace lab_29_async_await
 
             // Final lab - get result but can you turn this into a proper async overnight?
             // (This way only partly works - tasks overnight to improve it)
-            s.Restart();
+            //s.Restart();
             // This returns a 'task'
             var arrayOutPut = ReturnTextFileToArrayAsync();
             Console.WriteLine($"Async array returned in {s.ElapsedMilliseconds} with {arrayOutPut.Result.Length} records");
