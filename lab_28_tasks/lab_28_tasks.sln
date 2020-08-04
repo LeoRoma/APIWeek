@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_28_tasks", "lab_28_tasks\lab_28_tasks.csproj", "{35E91E74-7475-46AE-BB4F-36726ECC1D7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_28_tasks", "lab_28_tasks\lab_28_tasks.csproj", "{35E91E74-7475-46AE-BB4F-36726ECC1D7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_26_delegates", "lab_26_delegates\lab_26_delegates.csproj", "{1A734758-AC3F-4252-8984-2828058D2705}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_26_delegates", "lab_26_delegates\lab_26_delegates.csproj", "{1A734758-AC3F-4252-8984-2828058D2705}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_26b_delegates", "lab_26b_delegates\lab_26b_delegates.csproj", "{68C4A371-4B3D-4161-8DFB-96AD482D856F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_26b_delegates", "lab_26b_delegates\lab_26b_delegates.csproj", "{68C4A371-4B3D-4161-8DFB-96AD482D856F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_26c_delegates", "lab_26c_delegates\lab_26c_delegates.csproj", "{2AB89C00-0C0D-4B59-9DED-486CA5BEBF5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_26c_delegates", "lab_26c_delegates\lab_26c_delegates.csproj", "{2AB89C00-0C0D-4B59-9DED-486CA5BEBF5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_27_basic_events", "lab_27_basic_events\lab_27_basic_events.csproj", "{30A684BB-1C93-47A0-A895-CDAF350F4B49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_27_basic_events", "lab_27_basic_events\lab_27_basic_events.csproj", "{30A684BB-1C93-47A0-A895-CDAF350F4B49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_27b_oop_events", "lab_27b_oop_events\lab_27b_oop_events.csproj", "{344B6BAA-3E14-489A-B504-8CE1F4D5D68F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_27b_oop_events", "lab_27b_oop_events\lab_27b_oop_events.csproj", "{344B6BAA-3E14-489A-B504-8CE1F4D5D68F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_28b_task_array", "lab_28b_task_array\lab_28b_task_array.csproj", "{5A66FE2D-E590-40F4-967B-0BA8A7200BE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_28b_task_array", "lab_28b_task_array\lab_28b_task_array.csproj", "{5A66FE2D-E590-40F4-967B-0BA8A7200BE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_28c_task_parallel_processing", "lab_28c_task_parallel_processing\lab_28c_task_parallel_processing.csproj", "{BE81C811-6D1D-49C4-A045-5638719D707E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{5A66FE2D-E590-40F4-967B-0BA8A7200BE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A66FE2D-E590-40F4-967B-0BA8A7200BE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A66FE2D-E590-40F4-967B-0BA8A7200BE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE81C811-6D1D-49C4-A045-5638719D707E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE81C811-6D1D-49C4-A045-5638719D707E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE81C811-6D1D-49C4-A045-5638719D707E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE81C811-6D1D-49C4-A045-5638719D707E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

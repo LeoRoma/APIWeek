@@ -45,7 +45,7 @@ namespace lab_28_tasks
             //  b) Background processing jobs eg overnight tasks for credit card financial reporting 
             //  c) Website => click => data can take 5 seconds but rather than freeze screen, can still work
 
-            
+            // !!! Just be aware with threads and tasks we have ABSOLUTELY NO CONTROL OVER WHEN THE OPERATING SYSTEM WILL RUN A PARTICULAR TASK
 
             var thread = new Thread(
                 () => {
