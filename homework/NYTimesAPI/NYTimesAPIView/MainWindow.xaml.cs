@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NYTimesAPIController;
 using NYTimesAPIController.Controllers;
+using NYTimesAPIModel.Models;
 
 namespace NYTimesAPIView
 {
@@ -23,6 +24,7 @@ namespace NYTimesAPIView
     public partial class MainWindow : Window
     {
         private GetArtsController _getArtController = new GetArtsController();
+        private ItemWrapper wrapper = new ItemWrapper();
         public MainWindow()
         {
             InitializeComponent();
@@ -34,10 +36,12 @@ namespace NYTimesAPIView
         {
             if (_getArtController.GetNews() != null)
             {
-                
+       
                 ListViewNews.ItemsSource = _getArtController.GetNews();
+                ListViewImages.ItemsSource = _getArtController.GetImages();
+
             }
-            
+
         }
     }
 }

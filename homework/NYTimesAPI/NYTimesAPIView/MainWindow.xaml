@@ -5,31 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NYTimesAPIView"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1000">
     <Grid>
-        <ScrollViewer Grid.Column="1" Grid.Row="1" Background="#FFF1F1F1">
-            <StackPanel Width="715">
-                <TextBlock Text="Items" Margin="10" FontSize="22" FontWeight="Medium"/>
-                <StackPanel Margin="20 0" Height="350">
-                    <ListView  x:Name="ListViewNews" Width="612" Height="350">
-                        <ListView.View>
+        <Grid.ColumnDefinitions>
+            <!--<ColumnDefinition Width="679*"/>
+            <ColumnDefinition Width="121*"/>-->
+        </Grid.ColumnDefinitions>
+        <Label Content="NY Times" HorizontalAlignment="Center" FontSize="30" FontWeight="Black"></Label>
+        
+                
+                
+        <ListView x:Name="ListViewNews" Width="619" Height="350" Margin="82,51,299,33">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="619">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding title}" FontWeight="Bold" HorizontalAlignment="Right" FontSize="15"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+             
+        
 
-                            <GridView>
+        <ListView x:Name="ListViewImages" Margin="701,50,60,33" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="192.07">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding url}" Height="190" HorizontalAlignment="Center" x:Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="190" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
 
-                                <GridViewColumn Header="Name" Width="130">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding title}" FontWeight="Bold" HorizontalAlignment="Right" FontSize="15"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
+            </ListView.View>
 
-                        </ListView.View>
-
-                    </ListView>
-                </StackPanel>
-            </StackPanel>
-        </ScrollViewer>
+        </ListView>
     </Grid>
 </Window>

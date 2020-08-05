@@ -8,7 +8,7 @@ namespace NYTimesAPIModel.Models
     {
         public override string ToString()
         {
-            return $"{url}";
+            return $"{url[0]}";
         }
     }
 }

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NYTimesAPIController\NYTimesAPIController.csproj" />
+    <ProjectReference Include="..\NYTimesAPIModel\NYTimesAPIModel.csproj" />
   </ItemGroup>
 
 </Project>
