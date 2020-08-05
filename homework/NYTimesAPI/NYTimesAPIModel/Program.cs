@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CatAPIModel
+namespace NYTimesAPIModel
 {
     class Program
     {
