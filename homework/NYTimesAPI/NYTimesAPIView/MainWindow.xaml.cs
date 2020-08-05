@@ -36,10 +36,8 @@ namespace NYTimesAPIView
         {
             if (_getArtController.GetNews() != null)
             {
-       
                 ListViewNews.ItemsSource = _getArtController.GetNews();
                 ListViewImages.ItemsSource = _getArtController.GetImages();
-
             }
 
         }
