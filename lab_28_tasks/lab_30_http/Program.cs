@@ -100,18 +100,13 @@ namespace lab_30_http
             // take this to next level - deserialise a List Of Users!
 
             var httpClient2 = new HttpClient();
-            // Sync at present
             var httpResponse2 = httpClient.GetStringAsync(originalUrl);
             var data2 = httpResponse2.Result;
-            //var json2 = JObject.Parse(data2);
-            //string jsonToString2 = @$"{json2}";
-            var users = new List<string>();
 
-            //var array = JArray.Parse(jsonToString2);
-            List<User> obj = JsonConvert.DeserializeObject<List<User>>(data2);
+            List<User> users = JsonConvert.DeserializeObject<List<User>>(data2);
 
             Console.WriteLine("\n\nDeserialised Json into List");
-            foreach (var u in obj)
+            foreach (var u in users)
             {
                 Console.WriteLine($"{u.userId}, {u.id}, {u.title}, {u.completed}");
             }
