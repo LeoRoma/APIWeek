@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NYTimesAPIModel.Models
 {
-    public class Result
+    public partial class Result
     {
         public string section { get; set; }
         public string subsection { get; set; }
