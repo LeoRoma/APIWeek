@@ -20,6 +20,7 @@ namespace NYTimesAPIModel
         static void Main(string[] args)
         {
             GetNYTimes();
+            GetNews();
         }
 
         static void GetNYTimes()
@@ -33,11 +34,16 @@ namespace NYTimesAPIModel
                 Console.WriteLine(data);
             }
             Console.WriteLine("\n\nDeserialised TODO Json into List\n\n");
+            
+
+        }
+
+        static void GetNews()
+        {
             foreach (var item in root.results)
             {
-                Console.WriteLine(item.title);
+                Console.WriteLine(item);
             }
-
         }
     }
 }

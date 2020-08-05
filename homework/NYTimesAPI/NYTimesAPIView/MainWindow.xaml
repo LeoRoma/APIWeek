@@ -7,6 +7,29 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <ScrollViewer Grid.Column="1" Grid.Row="1" Background="#FFF1F1F1">
+            <StackPanel Width="715">
+                <TextBlock Text="Items" Margin="10" FontSize="22" FontWeight="Medium"/>
+                <StackPanel Margin="20 0" Height="350">
+                    <ListView  x:Name="ListViewNews" Width="612" Height="350">
+                        <ListView.View>
 
+                            <GridView>
+
+                                <GridViewColumn Header="Name" Width="130">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding title}" FontWeight="Bold" HorizontalAlignment="Right" FontSize="15"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+
+                        </ListView.View>
+
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>

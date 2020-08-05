@@ -10,10 +10,10 @@ namespace NYTimesAPIController.Controllers
 {
     public class GetArtsController
     {
-        static Uri url = new Uri("https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=s3sidQNE043xhMtYMOTXG0E044n5RsFd");
-        static public Root root = new Root();
+        Uri url = new Uri("https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=s3sidQNE043xhMtYMOTXG0E044n5RsFd");
+        Root root = new Root();
 
-        public static void GetNYTimesAPI()
+        public void GetNYTimesAPI()
         {
             using (var httpclient = new HttpClient())
             {
@@ -21,6 +21,16 @@ namespace NYTimesAPIController.Controllers
 
                 root = JsonConvert.DeserializeObject<Root>(data.Result);
             }
+        }
+
+        public List<Result> GetNews()
+        {
+            List<Result> news = new List<Result>();
+            foreach (var item in root.results)
+            {
+                news.Add(item);
+            }
+            return news;
         }
     }
 }
