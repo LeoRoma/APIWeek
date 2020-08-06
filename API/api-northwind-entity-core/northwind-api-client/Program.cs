@@ -12,18 +12,35 @@ namespace northwind_api_client
 {
     class Program
     {
+        private static Random random = new Random();
+
         static Stopwatch s = new Stopwatch();
 
         static List<Customer> customers = new List<Customer>();
 
         static Customer newCustomer = new Customer() 
         { 
-            CustomerId = "NEW03", 
+            CustomerId = $"{RandomCustomerId()}", 
             CompanyName = "Some Company", 
             ContactName = "Leo Hello", 
             ContactTitle = "Mr", 
             Address = "Piccadilly Road",
             City = "London",
+            Region = "Lndn",
+            PostalCode = "NWES23",
+            Country = "UK",
+            Phone = "0044-1231231",
+            Fax = "0044-32132132"
+        };
+
+        static Customer updateCustomer = new Customer()
+        {
+            CustomerId = "NEW03",
+            CompanyName = "Some Company",
+            ContactName = "John Doe",
+            ContactTitle = "Mr",
+            Address = "Victoria Road",
+            City = "Manchester",
             Region = "Lndn",
             PostalCode = "NWES23",
             Country = "UK",
@@ -57,8 +74,6 @@ namespace northwind_api_client
             GetOneCustomerAsync("ALFKI");
             Thread.Sleep(2000);
 
-            // Update
-
             // Delete (async)
             DeleteCustomerAsync("NEWCU");
             Thread.Sleep(2000);
@@ -66,6 +81,10 @@ namespace northwind_api_client
             // Delete (async return a Task)
             //DeleteCustomerAsyncTask("NEW02").Wait();
             //Thread.Sleep(1000);
+
+            // Update
+            UpdateCustomerAsync(updateCustomer);
+            Thread.Sleep(2000);
         }
 
         static async void GetAllCustomersAsync()
@@ -142,7 +161,7 @@ namespace northwind_api_client
             }
             else
             {
-                Console.WriteLine($"A customer with ID: {newCustomer.CustomerId} already exists");
+                Console.WriteLine($"A customer with ID: {newCustomer.CustomerId} already exists, can't create a new customer");
             }
         }
 
@@ -162,7 +181,7 @@ namespace northwind_api_client
             }
             else
             {
-                Console.WriteLine($"A customer with ID: {customerId} doesn't exists");
+                Console.WriteLine($"A customer with ID: {customerId} doesn't exists, can't delete");
             }
         }
 
@@ -187,5 +206,41 @@ namespace northwind_api_client
         //        return null;
         //    }
         //}
+
+        static async void UpdateCustomerAsync(Customer updateCustomer)
+        {
+            if (CustomerExists(updateCustomer.CustomerId) == true)
+            {
+                string updateCustomerAsJson = JsonConvert.SerializeObject(updateCustomer, Formatting.Indented);
+
+                // Convert this to HTTP
+                var httpContent = new StringContent(updateCustomerAsJson);
+
+                // Add headers before send
+                httpContent.Headers.ContentType.MediaType = "application/json";
+                httpContent.Headers.ContentType.CharSet = "UTF-8";
+          
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = await httpClient.PutAsync($"{url}/{updateCustomer.CustomerId}", httpContent);
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Record {updateCustomer.CustomerId} successfully updated");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"A customer with ID: {updateCustomer.CustomerId} doesn't exists, can't update");
+            }
+        }
+
+       
+        private static string RandomCustomerId()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, 5)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
     }
 }
