@@ -30,6 +30,8 @@ namespace lab_30a_http_deserialise_to_json
             Console.WriteLine($"After Sleep async data length is {todosAsync.Count}");
 
         }
+
+        // Sync
         static void GetTodos()
         {
             using (var httpclient = new HttpClient())
@@ -46,6 +48,7 @@ namespace lab_30a_http_deserialise_to_json
             }
         }
 
+        // Async
         static async void GetTodosAsync()
         {
             using (var httpclient = new HttpClient())

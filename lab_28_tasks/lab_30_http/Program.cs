@@ -22,7 +22,7 @@ namespace lab_30_http
             //GetDataUsingWebCLient1();
             //GetPageUsingWebRequest();
 
-            GetDataUsingHTTPClient();
+            //GetDataUsingHTTPClient();
         }
 
         static void GetDataUsingWebCLient()
@@ -31,6 +31,7 @@ namespace lab_30_http
             var data = webClient.DownloadString(url); //DownloadDataAsync
             Console.WriteLine(data);
         }
+
         static void GetDataUsingWebCLient1()
         {
             var webClient = new WebClient { Proxy = null };
