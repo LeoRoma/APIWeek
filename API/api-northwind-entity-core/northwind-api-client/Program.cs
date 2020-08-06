@@ -17,7 +17,7 @@ namespace northwind_api_client
 
         static Customer newCustomer = new Customer() 
         { 
-            CustomerId = "LEODW", 
+            CustomerId = "NEWCU", 
             CompanyName = "Some Company", 
             ContactName = "Leo Hi", 
             ContactTitle = "Mr", 
@@ -37,35 +37,37 @@ namespace northwind_api_client
         {
             Thread.Sleep(5000);
 
+            // Post a customer
+            PostCustomerAsync(newCustomer);
+            Thread.Sleep(1000);
+
+
             // Async Get All Customers
             Console.WriteLine("All customers");
-            GetAllCustomers();
+            GetAllCustomersAsync();
             Thread.Sleep(1000);
+            foreach (var item in customers)
+            {
+                Console.WriteLine(item.ContactName);
+            };
 
             // Async Get One Customer
             Console.WriteLine("\n\nOne Customer");
-            GetOneCustomer("ALFKI");
+            GetOneCustomerAsync("NEWCU");
             Thread.Sleep(1000);
-
-            // Post a customer
-            PostCustomerAsync(newCustomer);
         }
 
-        static async void GetAllCustomers()
+        static async void GetAllCustomersAsync()
         {
+            
             using(var httpClient = new HttpClient())
             {
                 var data =  await httpClient.GetStringAsync(url);
                 customers = JsonConvert.DeserializeObject<List<Customer>>(data);
             }
-
-            foreach (var item in customers)
-            {
-                Console.WriteLine(item.ContactName);
-            };
         }
 
-        static async void GetOneCustomer(string customerId)
+        static async void GetOneCustomerAsync(string customerId)
         {
             using (var httpClient = new HttpClient())
             {
@@ -75,12 +77,43 @@ namespace northwind_api_client
             Console.WriteLine(customer.ContactName);
         }
 
-        static async void PostCustomerAsync(Customer customer)
+        static void GetOneCustomer(string customerId)
         {
+            customer = null;
             using (var httpClient = new HttpClient())
             {
-                var data = await httpClient.PostAsync(url);
+                var data = httpClient.GetStringAsync($"{url}/{customerId}");
+                customer = JsonConvert.DeserializeObject<Customer>(data.Result);
             }
+            Console.WriteLine(customer.ContactName);
+        }
+
+        static async void PostCustomerAsync(Customer newCustomer)
+        {
+            // Check customer does not exist
+            GetOneCustomer(newCustomer.CustomerId);
+
+            if(customer == null)
+            {
+                // Firstly serialise our customer to JSON
+                string newCustomerAsJson = JsonConvert.SerializeObject(newCustomer, Formatting.Indented);
+
+                // Convert this to HTTP
+                var httpContent = new StringContent(newCustomerAsJson);
+
+                // Add headers before send
+                httpContent.Headers.ContentType.MediaType = "application/json";
+                httpContent.Headers.ContentType.CharSet = "UTF-8";
+
+                // Send Data
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = await httpClient.PostAsync(url, httpContent);
+                    Console.WriteLine($"Success status is {httpResponse.IsSuccessStatusCode}");
+                }
+            }
+
+            Console.WriteLine("Customer already exists");
         }
     }
 }
