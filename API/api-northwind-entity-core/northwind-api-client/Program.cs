@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using northwind_api_client.Models;
-using Newtonsoft.Json.Linq;
+using System.Linq;
 using Newtonsoft.Json;
 using System.Threading;
 using System.Diagnostics;
@@ -17,9 +17,9 @@ namespace northwind_api_client
 
         static Customer newCustomer = new Customer() 
         { 
-            CustomerId = "NEWCU", 
+            CustomerId = "NEW02", 
             CompanyName = "Some Company", 
-            ContactName = "Leo Hi", 
+            ContactName = "Leo Hello", 
             ContactTitle = "Mr", 
             Address = "Piccadilly Road",
             City = "London",
@@ -55,6 +55,12 @@ namespace northwind_api_client
             Console.WriteLine("\n\nOne Customer");
             GetOneCustomerAsync("NEWCU");
             Thread.Sleep(1000);
+
+            // Update
+
+            // Delete
+            DeleteCustomerAsync("NEW02");
+            Thread.Sleep(1000);
         }
 
         static async void GetAllCustomersAsync()
@@ -88,12 +94,24 @@ namespace northwind_api_client
             Console.WriteLine(customer.ContactName);
         }
 
+        //static bool CheckCustomerExists(string customerId)
+        //{
+        //    var customerExists = customers.Where(c => c.CustomerId == customerId).FirstOrDefault();
+        //    if(customerExists != null)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
+
         static async void PostCustomerAsync(Customer newCustomer)
         {
             // Check customer does not exist
             GetOneCustomer(newCustomer.CustomerId);
-
-            if(customer == null)
+            if (customer == null)
             {
                 // Firstly serialise our customer to JSON
                 string newCustomerAsJson = JsonConvert.SerializeObject(newCustomer, Formatting.Indented);
@@ -109,11 +127,40 @@ namespace northwind_api_client
                 using (var httpClient = new HttpClient())
                 {
                     var httpResponse = await httpClient.PostAsync(url, httpContent);
-                    Console.WriteLine($"Success status is {httpResponse.IsSuccessStatusCode}");
+                    if(httpResponse.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Record {newCustomer.CustomerId} successfully added");
+                    }
+                
                 }
             }
-
-            Console.WriteLine("Customer already exists");
+            else
+            {
+                Console.WriteLine($"A customer with ID: {newCustomer.CustomerId} already exists");
+            }
         }
+
+        static async void DeleteCustomerAsync(string customerId)
+        {
+            GetOneCustomer(customerId);
+            if (customer != null)
+            {
+                // Send Data
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = await httpClient.DeleteAsync($"{url}/{customerId}");
+                    if(httpResponse.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Record {customerId} successfully deleted");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"A customer with ID: {newCustomer.CustomerId} doesn't exists");
+            }
+        }
+
+
     }
 }
