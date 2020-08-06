@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Fetch Data</title>
+</head>
+<body>
+    <h1>This web page gets some API data</h1>
+    <button onclick="getData()">Get Some Data</button>
+    <div id="data">No data yet</div>
+    <script>
+        //Here some code (runs on page load)
+        var x = 100;
+        console.log(x);
+        fetch('https://jsonplaceholder.typicode.com/todos')
+            .then(response => response.json())
+            .then(json => console.log(json));
+
+        //code to run on button click
+        
+        function getData(){
+            fetch('https://jsonplaceholder.typicode.com/todos')
+            .then(response => response.json())
+            .then(json => {document.getElementById('data').innerHTML=JSON.stringify(json)}
+            );
+        }
+    </script>
+</body>
+</html>
