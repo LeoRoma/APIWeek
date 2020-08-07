@@ -22,14 +22,14 @@ namespace SpartaGlobalAPI.Controllers
 
         // GET: api/Courses
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Courses>>> GetCourses()
+        public async Task<ActionResult<IEnumerable<Course>>> GetCourses()
         {
             return await _context.Courses.ToListAsync();
         }
 
         // GET: api/Courses/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Courses>> GetCourses(int id)
+        public async Task<ActionResult<Course>> GetCourses(int id)
         {
             var courses = await _context.Courses.FindAsync(id);
 
@@ -45,7 +45,7 @@ namespace SpartaGlobalAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCourses(int id, Courses courses)
+        public async Task<IActionResult> PutCourses(int id, Course courses)
         {
             if (id != courses.CourseId)
             {
@@ -77,7 +77,7 @@ namespace SpartaGlobalAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Courses>> PostCourses(Courses courses)
+        public async Task<ActionResult<Course>> PostCourses(Course courses)
         {
             _context.Courses.Add(courses);
             await _context.SaveChangesAsync();
@@ -87,7 +87,7 @@ namespace SpartaGlobalAPI.Controllers
 
         // DELETE: api/Courses/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Courses>> DeleteCourses(int id)
+        public async Task<ActionResult<Course>> DeleteCourses(int id)
         {
             var courses = await _context.Courses.FindAsync(id);
             if (courses == null)

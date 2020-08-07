@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace SpartaGlobalAPI.Models
+namespace SpartaGlobalClient.Models
 {
-    public partial class Courses
+    public partial class Course
     {
-        public Courses()
+        public Course()
         {
-            Students = new HashSet<Students>();
+            Students = new HashSet<Student>();
         }
 
         public int CourseId { get; set; }
         public string CourseName { get; set; }
         public string CourseType { get; set; }
 
-        public virtual ICollection<Students> Students { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }
