@@ -38,6 +38,21 @@ namespace SpartaGlobalClient
             CourseId = 1
         };
 
+        static Course updateCourse = new Course()
+        {
+            CourseId = 4,
+            CourseName = "Engineering 100",
+            CourseType = "Test"
+        };
+
+        static Student updateStudent = new Student()
+        {
+            StudentId = 11,
+            StudentName = "Donkey",
+            Score = 3,
+            CourseId = 2
+        };
+
         static void Main(string[] args)
         {
             Thread.Sleep(5000);
@@ -91,10 +106,15 @@ namespace SpartaGlobalClient
             Thread.Sleep(2000);
 
             // Delete Student
-            DeleteStudentAsync(12);
+            DeleteStudentAsync(14);
             Thread.Sleep(2000);
 
+            // Update Course
+            UpdateCourseAsync(updateCourse);
+            Thread.Sleep(2000);
 
+            UpdateStudentAsync(updateStudent);
+            Thread.Sleep(2000);
 
         }
 
@@ -279,5 +299,65 @@ namespace SpartaGlobalClient
                 Console.WriteLine($"A Student with ID: {studentId} doesn't exists, can't delete");
             }
         }
+
+        // Update a course
+        static async void UpdateCourseAsync(Course updateCourse)
+        {
+            if (CourseExists(updateCourse.CourseId) == true)
+            {
+                string updateCourseAsJson = JsonConvert.SerializeObject(updateCourse, Formatting.Indented);
+
+                // Convert this to HTTP
+                var httpContent = new StringContent(updateCourseAsJson);
+
+                // Add headers before send
+                httpContent.Headers.ContentType.MediaType = "application/json";
+                httpContent.Headers.ContentType.CharSet = "UTF-8";
+
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = await httpClient.PutAsync($"{urlCourses}/{updateCourse.CourseId}", httpContent);
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Course {updateCourse.CourseId} successfully updated");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"A course with ID: {updateCourse.CourseId} doesn't exists, can't update");
+            }
+        }
+
+        // Update a student
+        static async void UpdateStudentAsync(Student updateStudent)
+        {
+            if (StudentExists(updateStudent.StudentId) == true)
+            {
+                string updateStudentAsJson = JsonConvert.SerializeObject(updateStudent, Formatting.Indented);
+
+                // Convert this to HTTP
+                var httpContent = new StringContent(updateStudentAsJson);
+
+                // Add headers before send
+                httpContent.Headers.ContentType.MediaType = "application/json";
+                httpContent.Headers.ContentType.CharSet = "UTF-8";
+
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = await httpClient.PutAsync($"{urlStudents}/{updateStudent.StudentId}", httpContent);
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Student {updateStudent.StudentId} successfully updated");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"A student with ID: {updateStudent.StudentId} doesn't exists, can't update");
+            }
+        }
     }
+
+    
 }
