@@ -27,14 +27,15 @@ namespace SpartaGlobalClient
         {
             Thread.Sleep(5000);
 
+            // Get courses Async
             Console.WriteLine("All courses");
             GetCoursesAsync();
             Thread.Sleep(2000);
             foreach (var item in courses)
             {
-                Console.WriteLine($"Course: {item.CourseName} Type: {item.CourseType}");
+                Console.WriteLine($"Course: {item.CourseName} Type: {item.CourseType} Students: {item.Students}");
             };
-
+            // Get Students Async
             Console.WriteLine("\n\nAll students");
             GetStudentsAsync();
             Thread.Sleep(2000);
@@ -42,6 +43,26 @@ namespace SpartaGlobalClient
             {
                 Console.WriteLine($"Name: {item.StudentName} Score: {item.Score}");
             };
+
+            // Get course Async
+            Console.WriteLine("\n\nOne Course");
+            GetOneCourseAsync(1);
+            Thread.Sleep(2000);
+            Console.WriteLine($"{course.CourseName}, {course.CourseType}");
+            
+            // Get student Async
+            Console.WriteLine("\n\nOne Student");
+            GetOneStudentAsync(1);
+            Thread.Sleep(2000);
+            Console.WriteLine($"{student.StudentName}, {student.Score}");
+
+            // Get Student and course
+            Console.WriteLine("\n\nGet student and course");
+            if (course.CourseId == student.CourseId)
+            {
+                Console.WriteLine($"{course.CourseName} {student.StudentName} {student.Score}");
+            }
+
 
 
         }
@@ -65,6 +86,30 @@ namespace SpartaGlobalClient
             }
         }
 
+        static bool CourseExists(int courseId)
+        {
+            GetCourses();
+            course = null;
+            course = courses.Where(c => c.CourseId == courseId).FirstOrDefault();
+            if (course != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        static async void GetOneCourseAsync(int courseId)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var data = await httpClient.GetStringAsync($"{urlCourses}/{courseId}");
+                course = JsonConvert.DeserializeObject<Course>(data);
+            }
+        }
+
         // GetStudents
 
         static async void GetStudentsAsync()
@@ -82,6 +127,30 @@ namespace SpartaGlobalClient
             {
                 var data = httpClient.GetStringAsync(urlStudents);
                 students = JsonConvert.DeserializeObject<List<Student>>(data.Result);
+            }
+        }
+
+        static bool StudentExists(int studentId)
+        {
+            GetStudents();
+            student = null;
+            student = students.Where(s => s.StudentId == studentId).FirstOrDefault();
+            if (course != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        static async void GetOneStudentAsync(int studentId)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var data = await httpClient.GetStringAsync($"{urlStudents}/{studentId}");
+                student = JsonConvert.DeserializeObject<Student>(data);
             }
         }
     }
