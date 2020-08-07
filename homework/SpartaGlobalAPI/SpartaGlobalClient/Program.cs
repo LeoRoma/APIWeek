@@ -23,9 +23,32 @@ namespace SpartaGlobalClient
         static Uri urlCourses = new Uri("https://localhost:44355/api/Courses");
         static Uri urlStudents = new Uri("https://localhost:44355/api/Students");
 
+        static Course newCourse = new Course()
+        {
+            CourseId = 1,
+            CourseName = "Data 55",
+            CourseType = "Data Analysts"
+        };
+
+        static Student newStudent = new Student()
+        {
+            //StudentId = 12,
+            StudentName = "Goat",
+            Score = 0,
+            CourseId = 1
+        };
+
         static void Main(string[] args)
         {
             Thread.Sleep(5000);
+
+            // Post course async
+            PostCourseAsync(newCourse);
+            Thread.Sleep(2000);
+
+            // Post student async
+            PostStudentAsync(newStudent);
+            Thread.Sleep(2000);
 
             // Get courses Async
             Console.WriteLine("All courses");
@@ -135,7 +158,7 @@ namespace SpartaGlobalClient
             GetStudents();
             student = null;
             student = students.Where(s => s.StudentId == studentId).FirstOrDefault();
-            if (course != null)
+            if (student != null)
             {
                 return true;
             }
@@ -153,5 +176,60 @@ namespace SpartaGlobalClient
                 student = JsonConvert.DeserializeObject<Student>(data);
             }
         }
+
+        // Post a Course
+        static async void PostCourseAsync(Course newCourse)
+        {
+            if (!CourseExists(newCourse.CourseId))
+            {
+                string newCourseAsJson = JsonConvert.SerializeObject(newCourse, Formatting.Indented);
+
+                var httpContent = new StringContent(newCourseAsJson);
+
+                httpContent.Headers.ContentType.MediaType = "application/json";
+                httpContent.Headers.ContentType.CharSet = "UTF-8";
+
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = await httpClient.PostAsync(urlCourses, httpContent);
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Record {newCourse.CourseName} successfully added");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Course with Name: {newCourse.CourseName} already exists, can't create a new customer");
+            }
+        }
+
+        // Post a Student
+        static async void PostStudentAsync(Student newStudent)
+        {
+            if (!StudentExists(newStudent.StudentId))
+            {
+                string newStudentAsJson = JsonConvert.SerializeObject(newStudent, Formatting.Indented);
+
+                var httpContent = new StringContent(newStudentAsJson);
+
+                httpContent.Headers.ContentType.MediaType = "application/json";
+                httpContent.Headers.ContentType.CharSet = "UTF-8";
+
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = await httpClient.PostAsync(urlStudents, httpContent);
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Record {newStudent.StudentName} successfully added");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Student with Name: {newStudent.StudentName} already exists, can't create a new Student");
+            }
+        }
+
     }
 }
