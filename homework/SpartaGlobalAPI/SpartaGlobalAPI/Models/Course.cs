@@ -7,13 +7,13 @@ namespace SpartaGlobalAPI.Models
     {
         public Course()
         {
-            Students = new HashSet<Student>();
+            Students = new List<Student>();
         }
 
         public int CourseId { get; set; }
         public string CourseName { get; set; }
         public string CourseType { get; set; }
 
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual List<Student> Students { get; set; }
     }
 }

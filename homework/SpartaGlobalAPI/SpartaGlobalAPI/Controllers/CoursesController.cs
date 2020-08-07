@@ -29,30 +29,30 @@ namespace SpartaGlobalAPI.Controllers
 
         // GET: api/Courses/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Course>> GetCourses(int id)
+        public async Task<ActionResult<Course>> GetCourse(int id)
         {
-            var courses = await _context.Courses.FindAsync(id);
+            var course = await _context.Courses.FindAsync(id);
 
-            if (courses == null)
+            if (course == null)
             {
                 return NotFound();
             }
 
-            return courses;
+            return course;
         }
 
         // PUT: api/Courses/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCourses(int id, Course courses)
+        public async Task<IActionResult> PutCourse(int id, Course course)
         {
-            if (id != courses.CourseId)
+            if (id != course.CourseId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(courses).State = EntityState.Modified;
+            _context.Entry(course).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace SpartaGlobalAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CoursesExists(id))
+                if (!CourseExists(id))
                 {
                     return NotFound();
                 }
@@ -77,31 +77,31 @@ namespace SpartaGlobalAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Course>> PostCourses(Course courses)
+        public async Task<ActionResult<Course>> PostCourse(Course course)
         {
-            _context.Courses.Add(courses);
+            _context.Courses.Add(course);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCourses", new { id = courses.CourseId }, courses);
+            return CreatedAtAction("GetCourse", new { id = course.CourseId }, course);
         }
 
         // DELETE: api/Courses/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Course>> DeleteCourses(int id)
+        public async Task<ActionResult<Course>> DeleteCourse(int id)
         {
-            var courses = await _context.Courses.FindAsync(id);
-            if (courses == null)
+            var course = await _context.Courses.FindAsync(id);
+            if (course == null)
             {
                 return NotFound();
             }
 
-            _context.Courses.Remove(courses);
+            _context.Courses.Remove(course);
             await _context.SaveChangesAsync();
 
-            return courses;
+            return course;
         }
 
-        private bool CoursesExists(int id)
+        private bool CourseExists(int id)
         {
             return _context.Courses.Any(e => e.CourseId == id);
         }

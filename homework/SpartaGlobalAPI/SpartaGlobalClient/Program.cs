@@ -32,7 +32,7 @@ namespace SpartaGlobalClient
 
         static Student newStudent = new Student()
         {
-            //StudentId = 12,
+            StudentId = 10,
             StudentName = "Goat",
             Score = 0,
             CourseId = 1
@@ -85,6 +85,14 @@ namespace SpartaGlobalClient
             {
                 Console.WriteLine($"{course.CourseName} {student.StudentName} {student.Score}");
             }
+
+            // Delete Course
+            DeleteCourseAsync(5);
+            Thread.Sleep(2000);
+
+            // Delete Student
+            DeleteStudentAsync(12);
+            Thread.Sleep(2000);
 
 
 
@@ -231,5 +239,45 @@ namespace SpartaGlobalClient
             }
         }
 
+        // Delete a course
+        static async void DeleteCourseAsync(int courseId)
+        {
+            if (CourseExists(courseId) == true)
+            {
+                // Send Data
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = await httpClient.DeleteAsync($"{urlCourses}/{courseId}");
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Course {courseId} successfully deleted");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"A course with ID: {courseId} doesn't exists, can't delete");
+            }
+        }
+
+        // Delete a student
+        static async void DeleteStudentAsync(int studentId)
+        {
+            if (StudentExists(studentId) == true)
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = await httpClient.DeleteAsync($"{urlStudents}/{studentId}");
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Student {studentId} successfully deleted");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"A Student with ID: {studentId} doesn't exists, can't delete");
+            }
+        }
     }
 }
