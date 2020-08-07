@@ -15,8 +15,8 @@ namespace SpartaGlobalAPI.Models
         {
         }
 
-        public virtual DbSet<Courses> Courses { get; set; }
-        public virtual DbSet<Students> Students { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -29,7 +29,7 @@ namespace SpartaGlobalAPI.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Courses>(entity =>
+            modelBuilder.Entity<Course>(entity =>
             {
                 entity.HasKey(e => e.CourseId)
                     .HasName("PK__Courses__C92D71A7392680DE");
@@ -41,7 +41,7 @@ namespace SpartaGlobalAPI.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Students>(entity =>
+            modelBuilder.Entity<Student>(entity =>
             {
                 entity.HasKey(e => e.StudentId)
                     .HasName("PK__Students__32C52B99D249C9F3");
