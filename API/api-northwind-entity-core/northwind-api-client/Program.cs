@@ -53,38 +53,38 @@ namespace northwind_api_client
 
         static void Main(string[] args)
         {
-            Thread.Sleep(5000);
+            //    Thread.Sleep(5000);
 
-            // Post a customer
-            PostCustomerAsync(newCustomer);
-            Thread.Sleep(2000);
+            //    // Post a customer
+            //    PostCustomerAsync(newCustomer);
+            //    Thread.Sleep(2000);
 
 
-            // Async Get All Customers
-            Console.WriteLine("All customers");
-            GetAllCustomersAsync();
-            Thread.Sleep(2000);
-            foreach (var item in customers)
-            {
-                Console.WriteLine(item.ContactName);
-            };
+            //    // Async Get All Customers
+            //    Console.WriteLine("All customers");
+            //    GetAllCustomersAsync();
+            //    Thread.Sleep(2000);
+            //    foreach (var item in customers)
+            //    {
+            //        Console.WriteLine(item.ContactName);
+            //    };
 
-            // Async Get One Customer
-            Console.WriteLine("\n\nOne Customer");
-            GetOneCustomerAsync("ALFKI");
-            Thread.Sleep(2000);
+            //    // Async Get One Customer
+            //    Console.WriteLine("\n\nOne Customer");
+            //    GetOneCustomerAsync("ALFKI");
+            //    Thread.Sleep(2000);
 
-            // Delete (async)
-            DeleteCustomerAsync("NEWCU");
-            Thread.Sleep(2000);
+            //    // Delete (async)
+            //    DeleteCustomerAsync("NEWCU");
+            //    Thread.Sleep(2000);
 
-            // Delete (async return a Task)
-            //DeleteCustomerAsyncTask("NEW02").Wait();
-            //Thread.Sleep(1000);
+            //    // Delete (async return a Task)
+            //    //DeleteCustomerAsyncTask("NEW02").Wait();
+            //    //Thread.Sleep(1000);
 
-            // Update
-            UpdateCustomerAsync(updateCustomer);
-            Thread.Sleep(2000);
+            //    // Update
+            //    UpdateCustomerAsync(updateCustomer);
+            //    Thread.Sleep(2000);
         }
 
         static async void GetAllCustomersAsync()
