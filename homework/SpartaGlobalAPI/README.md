@@ -15,8 +15,8 @@
 
 ## User Stories
 - As a user, I can get a list of course and students, so I can check all the courses available and the current students
-- [ ] Get Courses
-- [ ] Get Students
+- [x] Get Courses
+- [x] Get Students
 - As a user, I can delete a selected course or student, so I can remove them from the database if a course or a student has completed the training
 - [ ] Delete Course
 - [ ] Delete Student
