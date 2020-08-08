@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using SpartaGlobalClient.Controllers;
+
 namespace SpartaGlobalView.Pages.Students
 {
     /// <summary>
@@ -18,9 +20,25 @@ namespace SpartaGlobalView.Pages.Students
     /// </summary>
     public partial class StudentFormView : Page
     {
+        private StudentsController _studentsController = new StudentsController();
         public StudentFormView()
         {
             InitializeComponent();
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+            string name = TextBoxName.Text;
+            int courseId = Int32.Parse(TextBoxCourseId.Text);
+            _studentsController.PostStudent(name, courseId);
+            MessageBox.Show("Course saved successfully");
+            MainFrame.Navigate(new StudentsView());
+        }
+
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new StudentsView());
         }
     }
 }

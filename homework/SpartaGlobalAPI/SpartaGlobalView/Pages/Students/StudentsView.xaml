@@ -56,6 +56,6 @@
         <Button x:Name="ButtonDeleteStudent" Width="90" Height="26" Margin="608,412,102,12" Click="ButtonDeleteStudent_Click" >
             Delete
         </Button>
-        <Frame x:Name="FrameMain" NavigationUIVisibility="Hidden" Margin="-132,0,132,0"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
     </Grid>
 </Page>

@@ -8,7 +8,34 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="StudentFormView">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Rectangle Height="80" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2281D1"/>
+                    <GradientStop Color="#FF34268A" Offset="1"/>
+                    <GradientStop Color="#FF33288B" Offset="0.546"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Content="Course Form" Foreground="White" FontSize="20" HorizontalAlignment="Center" Name="lblTitle" VerticalAlignment="Top" Margin="0,20,0,0" />
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="720">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="TextBlockStudentName" Height="23" HorizontalAlignment="Left" Margin="164,73,0,0" Text="Name" VerticalAlignment="Top" Width="68" />
+            <TextBlock x:Name="TextBlockStudentCourseId" Height="23" HorizontalAlignment="Left" Margin="164,116,0,0" Text="Course ID" VerticalAlignment="Top" Width="78" />
+
+            <TextBox x:Name="TextBoxName" Height="23" HorizontalAlignment="Left" Margin="236,73,0,0" VerticalAlignment="Top" Width="246" Grid.ColumnSpan="2" />
+            <TextBox x:Name="TextBoxCourseId" Height="22" HorizontalAlignment="Left" Margin="236,116,0,0" VerticalAlignment="Top" Width="248" Grid.ColumnSpan="2" />
+
+            <Button x:Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="321,191,0,0" Width="76" Click="ButtonSave_Click" Grid.ColumnSpan="2" />
+            <Button x:Name="ButtonBack" Content="Back" HorizontalAlignment="Left" Margin="48,191,0,0" Width="76" Click="ButtonBack_Click" Grid.Column="1" Height="20" VerticalAlignment="Top" />
+
+        </Grid>
+
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+
     </Grid>
 </Page>

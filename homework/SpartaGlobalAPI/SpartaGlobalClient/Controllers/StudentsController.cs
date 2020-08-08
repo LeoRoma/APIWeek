@@ -85,6 +85,37 @@ namespace SpartaGlobalClient.Controllers
             }
         }
 
+        public void PostStudent(string name, int courseId)
+        {
+            Student newStudent = new Student()
+            {
+                StudentName = name,
+                CourseId = courseId
+            };
+            if (!StudentExists(newStudent.StudentId))
+            {
+                string newStudentAsJson = JsonConvert.SerializeObject(newStudent, Formatting.Indented);
+
+                var httpContent = new StringContent(newStudentAsJson);
+
+                httpContent.Headers.ContentType.MediaType = "application/json";
+                httpContent.Headers.ContentType.CharSet = "UTF-8";
+
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = httpClient.PostAsync(urlStudents, httpContent);
+                    if (httpResponse.Result.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Record {newStudent.StudentName} successfully added");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Student with Name: {newStudent.StudentName} already exists, can't create a new Student");
+            }
+        }
+
         public async void DeleteStudentAsync(int studentId)
         {
             if (StudentExists(studentId) == true)

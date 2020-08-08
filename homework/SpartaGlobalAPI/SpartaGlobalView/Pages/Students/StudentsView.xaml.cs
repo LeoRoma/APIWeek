@@ -38,7 +38,7 @@ namespace SpartaGlobalView.Pages.Students
         }
         private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
         {
-            
+            MainFrame.Navigate(new StudentFormView());
         }
 
         private void ButtonEditStudent_Click(object sender, RoutedEventArgs e)
