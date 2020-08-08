@@ -107,6 +107,26 @@ namespace SpartaGlobalClient.Controllers
             }
         }
 
+        public void DeleteCourse(int courseId)
+        {
+            if (CourseExists(courseId) == true)
+            {
+                // Send Data
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = httpClient.DeleteAsync($"{urlCourses}/{courseId}");
+                    if (httpResponse.Result.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Course {courseId} successfully deleted");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"A course with ID: {courseId} doesn't exists, can't delete");
+            }
+        }
+
         public async void UpdateCourseAsync(Course updateCourse)
         {
             if (CourseExists(updateCourse.CourseId) == true)

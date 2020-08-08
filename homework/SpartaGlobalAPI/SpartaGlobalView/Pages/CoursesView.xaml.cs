@@ -52,7 +52,9 @@ namespace SpartaGlobalView.Pages
 
         private void ButtonDeleteCourse_Click(object sender, RoutedEventArgs e)
         {
-
+            _coursesController.DeleteCourse(_coursesController.SelectedCourse.CourseId);
+            MessageBox.Show("Course deleted successfully");
+            PopulateAllCourses();
         }
 
         public void ListViewCourses_SelectionChanged(object sender, SelectionChangedEventArgs e)
