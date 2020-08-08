@@ -184,6 +184,40 @@ namespace SpartaGlobalClient.Controllers
             }
         }
 
+        public void UpdateStudent(string name, int score, int studentId)
+        {
+            Student updateStudent = new Student()
+            {
+                StudentId = studentId,
+                StudentName = name,
+                Score = score
+            };
+            if (StudentExists(updateStudent.StudentId) == true)
+            {
+                string updateStudentAsJson = JsonConvert.SerializeObject(updateStudent, Formatting.Indented);
+
+                // Convert this to HTTP
+                var httpContent = new StringContent(updateStudentAsJson);
+
+                // Add headers before send
+                httpContent.Headers.ContentType.MediaType = "application/json";
+                httpContent.Headers.ContentType.CharSet = "UTF-8";
+
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = httpClient.PutAsync($"{urlStudents}/{updateStudent.StudentId}", httpContent);
+                    if (httpResponse.Result.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Student {updateStudent.StudentId} successfully updated");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"A student with ID: {updateStudent.StudentId} doesn't exists, can't update");
+            }
+        }
+
         public void SetSelectedStudent(object selectedStudent)
         {
             SelectedStudent = (Student)selectedStudent;

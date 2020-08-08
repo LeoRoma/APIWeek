@@ -12,7 +12,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using SpartaGlobalView.Windows;
 using SpartaGlobalClient.Controllers;
 
 namespace SpartaGlobalView.Pages.Courses
@@ -23,15 +22,14 @@ namespace SpartaGlobalView.Pages.Courses
     public partial class CoursesView : Page
     {
         private CoursesController _coursesController = new CoursesController();
-        private CourseFormView _courseFormView = new CourseFormView();
-        private CourseEditForm _courseEditForm = new CourseEditForm();
+
 
         public CoursesView()
         {
             //Thread.Sleep(6000);
             InitializeComponent();
             PopulateAllCourses();
-            PopulateCourseFields();
+            //PopulateCourseFields();
         }
 
         public void PopulateAllCourses()
@@ -50,13 +48,13 @@ namespace SpartaGlobalView.Pages.Courses
 
         private void ButtonEditCourse_Click(object sender, RoutedEventArgs e)
         {
-            string name = _coursesController.SelectedCourse.CourseName;
-            string type = _coursesController.SelectedCourse.CourseType;
-            int id = _coursesController.SelectedCourse.CourseId;
-            _courseEditForm.GetCourseDetails(name, type, id);
-
-            _courseEditForm.PopulateCourseField();
-            _courseEditForm.Show();
+            string name = CourseName.Text;
+            string type = CourseType.Text;
+            int id = _coursesController.SelectedCourse.CourseId; 
+            _coursesController.UpdateCourse(name, type, id);
+            MessageBox.Show("Course updated successfully");
+            MainFrame.Navigate(new CoursesView());
+            PopulateAllCourses();
         }
 
         private void ButtonDeleteCourse_Click(object sender, RoutedEventArgs e)
@@ -79,8 +77,8 @@ namespace SpartaGlobalView.Pages.Courses
         {
             if (_coursesController.SelectedCourse != null)
             {
-                CourseId.Text = _coursesController.SelectedCourse.CourseId.ToString();
-                CourseName.Text = _coursesController.SelectedCourse.CourseName;
+                CourseName.Text = _coursesController.SelectedCourse.CourseId.ToString();
+                CourseType.Text = _coursesController.SelectedCourse.CourseName;
             }
         }
     }

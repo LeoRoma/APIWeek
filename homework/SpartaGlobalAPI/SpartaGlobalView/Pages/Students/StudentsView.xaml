@@ -10,10 +10,10 @@
 
     <Grid>
         <ScrollViewer Grid.Column="1" Grid.Row="1" Background="#FFF1F1F1">
-            <StackPanel Width="715">
-                <TextBlock Text="Students" Margin="10" FontSize="22" FontWeight="Medium"/>
-                <StackPanel Margin="20 0" Height="350">
-                    <ListView  x:Name="ListViewStudents" SelectionChanged="ListViewStudents_SelectionChanged" Width="612" Height="350">
+            <StackPanel Width="550" >
+                <TextBlock Text="Courses" Margin="10" FontSize="22" FontWeight="Medium"/>
+                <StackPanel Margin="20 0" Height="250">
+                    <ListView  x:Name="ListViewStudents" SelectionChanged="ListViewStudents_SelectionChanged"  Width="510" Height="250">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Id" Width="60">
@@ -43,19 +43,21 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
-        <TextBlock x:Name="SelectedItem" Text="Selected item:" Width="100" Height="25" Margin="42,412,658,13" FontWeight="Bold" FontSize="15"/>
-        <TextBlock x:Name="PoundSign" Text="£:" Width="50" Height="25" Margin="252,415,498,10" FontWeight="Bold" FontSize="15"/>
-        <TextBox x:Name="Name" Width="100" Height="25" Margin="277,412,423,12"/>
-        <TextBox x:Name="ProductName" Width="100" Height="25" Margin="147,412,553,13"/>
-        <Button x:Name="ButtonEditStudent" Width="90" Height="26" Margin="513,412,197,12" Click="ButtonEditStudent_Click" >
+        <TextBlock x:Name="SelectedItem" Text="Selected Course:" Width="120" Height="25" Margin="3,179,410,13" FontWeight="Bold" FontSize="15"/>
+        <TextBlock x:Name="Name" Text="Name" Width="50" Height="25" Margin="3,230,480,13" FontWeight="Bold" FontSize="15"/>
+        <TextBlock x:Name="StudentScore" Text="Score" Height="25" Margin="135,300,0,30" FontWeight="Bold" FontSize="15"/>
+        <TextBox x:Name="StudentName" Width="200" Height="25" Margin="1,230,222,12"/>
+        <TextBox x:Name="Score" Width="200" Height="25" Margin="1,310,222,40"/>
+        <Button x:Name="ButtonEditStudent" Width="90" Height="26" Margin="240,280,30,12" Click="ButtonEditStudent_Click" >
             Edit
         </Button>
-        <Button x:Name="ButtonAddStudent" Width="90" Height="26" Margin="418,412,292,12" Click="ButtonAddStudent_Click" >
+        <Button x:Name="ButtonAddStudent" Width="90" Height="26" Margin="401,240,0,100" Click="ButtonAddStudent_Click" >
             Add
         </Button>
-        <Button x:Name="ButtonDeleteStudent" Width="90" Height="26" Margin="608,412,102,12" Click="ButtonDeleteStudent_Click" >
+        <Button x:Name="ButtonDeleteStudent" Width="90" Height="26" Margin="401,360,3,92" Click="ButtonDeleteStudent_Click" >
             Delete
         </Button>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
     </Grid>
 </Page>
+

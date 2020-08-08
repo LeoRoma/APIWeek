@@ -3,33 +3,33 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SpartaGlobalView.Pages"
+
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="CoursesView">
     <Grid>
         <ScrollViewer Grid.Column="1" Grid.Row="1" Background="#FFF1F1F1">
-            <StackPanel Width="715">
+            <StackPanel Width="550" >
                 <TextBlock Text="Courses" Margin="10" FontSize="22" FontWeight="Medium"/>
-                <StackPanel Margin="20 0" Height="350">
-                    <ListView  x:Name="ListViewCourses" SelectionChanged="ListViewCourses_SelectionChanged" Width="612" Height="350">
+                <StackPanel Margin="20 0" Height="250">
+                    <ListView  x:Name="ListViewCourses" SelectionChanged="ListViewCourses_SelectionChanged" Width="510" Height="250">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Id" Width="60">
+                                <GridViewColumn Header="Id" Width="50">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding CourseId}" FontWeight="Bold" HorizontalAlignment="Right" FontSize="15"/>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Header="Name" Width="230">
+                                <GridViewColumn Header="Name" Width="250">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding CourseName}" FontWeight="Black" HorizontalAlignment="Center"/>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Header="Type" Width="320">
+                                <GridViewColumn Header="Type" Width="200">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding CourseType}" FontWeight="Regular" />
@@ -42,19 +42,37 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
-        <TextBlock x:Name="SelectedItem" Text="Selected Course:" Width="100" Height="25" Margin="42,412,658,13" FontWeight="Bold" FontSize="15"/>
-        <TextBlock x:Name="PoundSign" Text="£:" Width="50" Height="25" Margin="252,415,498,10" FontWeight="Bold" FontSize="15"/>
-        <TextBox x:Name="CourseName" Width="100" Height="25" Margin="277,412,423,12"/>
-        <TextBox x:Name="CourseId" Width="100" Height="25" Margin="147,412,553,13"/>
-        <Button x:Name="ButtonEditCourse" Width="90" Height="26" Margin="513,412,197,12" Click="ButtonEditCourse_Click" >
+        <TextBlock x:Name="SelectedItem" Text="Selected Course:" Width="120" Height="25" Margin="3,179,410,13" FontWeight="Bold" FontSize="15"/>
+        <TextBlock x:Name="Name" Text="Name" Width="50" Height="25" Margin="3,230,480,13" FontWeight="Bold" FontSize="15"/>
+        <TextBlock x:Name="Type" Text="Type" Height="25" Margin="135,300,0,30" FontWeight="Bold" FontSize="15"/>
+        <TextBox x:Name="CourseName" Width="200" Height="25" Margin="1,230,222,12"/>
+        <TextBox x:Name="CourseType" Width="200" Height="25" Margin="1,310,222,40"/>
+        <Button x:Name="ButtonEditCourse" Width="90" Height="26" Margin="240,280,30,12" Click="ButtonEditCourse_Click" >
             Edit
         </Button>
-        <Button x:Name="ButtonAddCourse" Width="90" Height="26" Margin="418,412,292,12" Click="ButtonAddCourse_Click" >
+        <Button x:Name="ButtonAddCourse" Width="90" Height="26" Margin="401,240,0,100" Click="ButtonAddCourse_Click" >
             Add
         </Button>
-        <Button x:Name="ButtonDeleteCourse" Width="90" Height="26" Margin="608,412,102,12" Click="ButtonDeleteCourse_Click" >
+        <Button x:Name="ButtonDeleteCourse" Width="90" Height="26" Margin="401,360,3,92" Click="ButtonDeleteCourse_Click" >
             Delete
         </Button>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>
+
+<!--<TextBlock x:Name="SelectedItem" Text="Selected Course:" Height="25" Margin="166,397,510,178" FontWeight="Bold" FontSize="15"/>
+<TextBlock x:Name="Courses" Text="Courses" Height="25" Width="100" Margin="30,34,670,541" FontSize="22" FontWeight="Medium"/>
+<TextBlock x:Name="Name" Text="Name" Height="25" Margin="166,442,510,133" FontWeight="Bold" FontSize="15"/>
+<TextBlock x:Name="Type" Text="Type" Height="25" Margin="166,505,510,70" FontWeight="Bold" FontSize="15"/>
+
+<TextBox x:Name="CourseName" Height="25" Margin="166,467,439,108"/>
+<TextBox x:Name="CourseType" Height="25" Margin="166,535,439,40"/>
+<Button x:Name="ButtonEditCourse" Width="90" Height="26" Margin="551,466,159,108" Click="ButtonEditCourse_Click" >
+    Edit
+</Button>
+<Button x:Name="ButtonAddCourse" Width="90" Height="26" Margin="366,466,344,108" Click="ButtonAddCourse_Click" >
+    Add
+</Button>
+<Button x:Name="ButtonDeleteCourse" Width="90" Height="26" Margin="461,466,249,108" Click="ButtonDeleteCourse_Click" >
+    Delete
+</Button>-->

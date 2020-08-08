@@ -22,10 +22,7 @@ namespace SpartaGlobalView
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        private CoursesView _coursesView = new CoursesView();
-        private StudentsView _studentsView = new StudentsView();
-
+    { 
         public MainWindow()
         {
             InitializeComponent();
