@@ -1,0 +1,52 @@
+﻿<Window x:Class="SpartaGlobalView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SpartaGlobalView"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+
+        <Rectangle Height="100" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.1,4" StartPoint="1.1,3">
+                    <GradientStop Color="#829FD9"/>
+                    <GradientStop Color="#5E6EBD" Offset="1"/>
+                    <GradientStop Color="#CBC8DE" Offset="0.546"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid x:Name="nav_panel_top"
+                  VerticalAlignment="Top"
+                  Height="100">
+
+            <Label x:Name="Header" Content="Sparta Global Manager" Grid.Row="0" FontSize="35" HorizontalAlignment="Center" Foreground="White"/>
+            <StackPanel x:Name="stack_panel_top" Orientation="Horizontal"  VerticalAlignment="Bottom">
+
+                <Button x:Name="ButtonHome" Foreground="White" FontWeight="ExtraBold" Background="#5E6EBD" Margin="10,10,10,10" Height="30" Width="70" Click="ButtonHome_Click">
+                    Home
+                </Button>
+
+                <Button x:Name="ButtonShowItems" Foreground="White" FontWeight="Bold" Background="#829FD9" Margin="0,10,10,10" Height="30" Width="70" Click="ButtonShowItems_Click">
+                    Courses
+                </Button>
+                <Button x:Name="ButtonYourSpace" Foreground="White" FontWeight="Bold" Background="#CBC8DE" Margin="0,10,0,10" Height="30" Width="70" Click="ButtonYourSpace_Click">
+                    Students
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid HorizontalAlignment="Right" Height="100">
+
+        </Grid>
+        <Grid Width="800" Height="485" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,99,0,0">
+
+            <Grid.Background>
+                <ImageBrush ImageSource=""/>
+            </Grid.Background>
+            <Frame x:Name="FrameMain" NavigationUIVisibility="Hidden"></Frame>
+
+        </Grid>
+    </Grid>
+</Window>
