@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 using SpartaGlobalClient.Controllers;
 
-namespace SpartaGlobalView.Pages
+namespace SpartaGlobalView.Pages.Courses
 {
     /// <summary>
     /// Interaction logic for CoursesView.xaml
@@ -42,7 +42,7 @@ namespace SpartaGlobalView.Pages
 
         private void ButtonAddCourse_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new CourseFormView());
         }
 
         private void ButtonEditCourse_Click(object sender, RoutedEventArgs e)

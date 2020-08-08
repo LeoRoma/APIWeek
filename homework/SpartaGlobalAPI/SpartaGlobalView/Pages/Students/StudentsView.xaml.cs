@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 using SpartaGlobalClient.Controllers;
 
-namespace SpartaGlobalView.Pages
+namespace SpartaGlobalView.Pages.Students
 {
     /// <summary>
     /// Interaction logic for StudentsView.xaml

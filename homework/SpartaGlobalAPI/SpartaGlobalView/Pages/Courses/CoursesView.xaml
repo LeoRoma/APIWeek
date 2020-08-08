@@ -1,4 +1,4 @@
-﻿<Page x:Class="SpartaGlobalView.Pages.CoursesView"
+﻿<Page x:Class="SpartaGlobalView.Pages.Courses.CoursesView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -55,6 +55,6 @@
         <Button x:Name="ButtonDeleteCourse" Width="90" Height="26" Margin="608,412,102,12" Click="ButtonDeleteCourse_Click" >
             Delete
         </Button>
-        <Frame x:Name="FrameMain" NavigationUIVisibility="Hidden" Margin="-132,0,132,0"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>

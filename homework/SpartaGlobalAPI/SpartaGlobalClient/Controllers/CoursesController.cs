@@ -16,7 +16,7 @@ namespace SpartaGlobalClient.Controllers
         Uri urlCourses = new Uri("https://localhost:44355/api/Courses");
 
         public Course course = new Course();
-
+   
         public List<Course> courses = new List<Course>();
 
         public async void GetCoursesAsync()
@@ -76,6 +76,37 @@ namespace SpartaGlobalClient.Controllers
                 {
                     var httpResponse = await httpClient.PostAsync(urlCourses, httpContent);
                     if (httpResponse.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Record {newCourse.CourseName} successfully added");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Course with Name: {newCourse.CourseName} already exists, can't create a new customer");
+            }
+        }
+
+        public void PostCourse(string name, string type)
+        {
+            Course newCourse = new Course() 
+            {
+                CourseName = name,
+                CourseType = type
+            };
+            if (!CourseExists(newCourse.CourseId))
+            {
+                string newCourseAsJson = JsonConvert.SerializeObject(newCourse, Formatting.Indented);
+
+                var httpContent = new StringContent(newCourseAsJson);
+
+                httpContent.Headers.ContentType.MediaType = "application/json";
+                httpContent.Headers.ContentType.CharSet = "UTF-8";
+
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = httpClient.PostAsync(urlCourses, httpContent);
+                    if (httpResponse.Result.IsSuccessStatusCode)
                     {
                         Console.WriteLine($"Record {newCourse.CourseName} successfully added");
                     }
