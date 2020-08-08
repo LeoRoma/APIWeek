@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using SpartaGlobalClient.Controllers;
+
 namespace SpartaGlobalView.Pages
 {
     /// <summary>
@@ -18,9 +21,22 @@ namespace SpartaGlobalView.Pages
     /// </summary>
     public partial class CoursesView : Page
     {
+        private CoursesController _coursesController = new CoursesController();
+
         public CoursesView()
         {
             InitializeComponent();
+            //Thread.Sleep(6000);
+            PopulateAllCourses();
+        }
+
+        public void PopulateAllCourses()
+        {
+            _coursesController.GetCourses();
+            if (_coursesController.courses != null)
+            {
+                ListViewCourses.ItemsSource = _coursesController.courses;
+            }
         }
 
         private void ButtonAddCourse_Click(object sender, RoutedEventArgs e)

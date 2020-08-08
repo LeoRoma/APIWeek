@@ -55,66 +55,66 @@ namespace SpartaGlobalClient
 
         static void Main(string[] args)
         {
-            Thread.Sleep(5000);
+            //Thread.Sleep(5000);
 
-            // Post course async
-            PostCourseAsync(newCourse);
-            Thread.Sleep(2000);
+            //// Post course async
+            //PostCourseAsync(newCourse);
+            //Thread.Sleep(2000);
 
-            // Post student async
-            PostStudentAsync(newStudent);
-            Thread.Sleep(2000);
+            //// Post student async
+            //PostStudentAsync(newStudent);
+            //Thread.Sleep(2000);
 
-            // Get courses Async
-            Console.WriteLine("All courses");
-            GetCoursesAsync();
-            Thread.Sleep(2000);
-            foreach (var item in courses)
-            {
-                Console.WriteLine($"Course: {item.CourseName} Type: {item.CourseType} Students: {item.Students}");
-            };
-            // Get Students Async
-            Console.WriteLine("\n\nAll students");
-            GetStudentsAsync();
-            Thread.Sleep(2000);
-            foreach (var item in students)
-            {
-                Console.WriteLine($"Name: {item.StudentName} Score: {item.Score}");
-            };
+            //// Get courses Async
+            //Console.WriteLine("All courses");
+            //GetCoursesAsync();
+            //Thread.Sleep(2000);
+            //foreach (var item in courses)
+            //{
+            //    Console.WriteLine($"Course: {item.CourseName} Type: {item.CourseType} Students: {item.Students}");
+            //};
+            //// Get Students Async
+            //Console.WriteLine("\n\nAll students");
+            //GetStudentsAsync();
+            //Thread.Sleep(2000);
+            //foreach (var item in students)
+            //{
+            //    Console.WriteLine($"Name: {item.StudentName} Score: {item.Score}");
+            //};
 
-            // Get course Async
-            Console.WriteLine("\n\nOne Course");
-            GetOneCourseAsync(1);
-            Thread.Sleep(2000);
-            Console.WriteLine($"{course.CourseName}, {course.CourseType}");
+            //// Get course Async
+            //Console.WriteLine("\n\nOne Course");
+            //GetOneCourseAsync(1);
+            //Thread.Sleep(2000);
+            //Console.WriteLine($"{course.CourseName}, {course.CourseType}");
             
-            // Get student Async
-            Console.WriteLine("\n\nOne Student");
-            GetOneStudentAsync(1);
-            Thread.Sleep(2000);
-            Console.WriteLine($"{student.StudentName}, {student.Score}");
+            //// Get student Async
+            //Console.WriteLine("\n\nOne Student");
+            //GetOneStudentAsync(1);
+            //Thread.Sleep(2000);
+            //Console.WriteLine($"{student.StudentName}, {student.Score}");
 
-            // Get Student and course
-            Console.WriteLine("\n\nGet student and course");
-            if (course.CourseId == student.CourseId)
-            {
-                Console.WriteLine($"{course.CourseName} {student.StudentName} {student.Score}");
-            }
+            //// Get Student and course
+            //Console.WriteLine("\n\nGet student and course");
+            //if (course.CourseId == student.CourseId)
+            //{
+            //    Console.WriteLine($"{course.CourseName} {student.StudentName} {student.Score}");
+            //}
 
-            // Delete Course
-            DeleteCourseAsync(5);
-            Thread.Sleep(2000);
+            //// Delete Course
+            //DeleteCourseAsync(5);
+            //Thread.Sleep(2000);
 
-            // Delete Student
-            DeleteStudentAsync(14);
-            Thread.Sleep(2000);
+            //// Delete Student
+            //DeleteStudentAsync(14);
+            //Thread.Sleep(2000);
 
-            // Update Course
-            UpdateCourseAsync(updateCourse);
-            Thread.Sleep(2000);
+            //// Update Course
+            //UpdateCourseAsync(updateCourse);
+            //Thread.Sleep(2000);
 
-            UpdateStudentAsync(updateStudent);
-            Thread.Sleep(2000);
+            //UpdateStudentAsync(updateStudent);
+            //Thread.Sleep(2000);
 
         }
 
