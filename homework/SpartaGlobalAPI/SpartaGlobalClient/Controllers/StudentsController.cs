@@ -11,6 +11,8 @@ namespace SpartaGlobalClient.Controllers
 {
     public class StudentsController
     {
+        public Student SelectedStudent { get; set; }
+
         Uri urlStudents = new Uri("https://localhost:44355/api/Students");
 
         public Student student = new Student();
@@ -135,6 +137,25 @@ namespace SpartaGlobalClient.Controllers
             }
         }
 
+        public void DeleteStudent(int studentId)
+        {
+            if (StudentExists(studentId) == true)
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = httpClient.DeleteAsync($"{urlStudents}/{studentId}");
+                    if (httpResponse.Result.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Student {studentId} successfully deleted");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"A Student with ID: {studentId} doesn't exists, can't delete");
+            }
+        }
+
         public async void UpdateStudentAsync(Student updateStudent)
         {
             if (StudentExists(updateStudent.StudentId) == true)
@@ -161,6 +182,11 @@ namespace SpartaGlobalClient.Controllers
             {
                 Console.WriteLine($"A student with ID: {updateStudent.StudentId} doesn't exists, can't update");
             }
+        }
+
+        public void SetSelectedStudent(object selectedStudent)
+        {
+            SelectedStudent = (Student)selectedStudent;
         }
     }
 }

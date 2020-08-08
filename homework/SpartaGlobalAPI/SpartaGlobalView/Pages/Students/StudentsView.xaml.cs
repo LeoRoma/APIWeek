@@ -48,15 +48,25 @@ namespace SpartaGlobalView.Pages.Students
 
         private void ButtonDeleteStudent_Click(object sender, RoutedEventArgs e)
         {
-
+            _studentsController.DeleteStudent(_studentsController.SelectedStudent.StudentId);
+            MessageBox.Show("Student deleted successfully");
+            PopulateAllStudents();
         }
 
         public void ListViewStudents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ListViewStudents.SelectedItem != null)
             {
-                //_itemsManagerController.SetSelectedItem(ListViewItems.SelectedItem);
-                //PopulateItemFields();
+                _studentsController.SetSelectedStudent(ListViewStudents.SelectedItem);
+                PopulateStudentFields();
+            }
+        }
+
+        public void PopulateStudentFields()
+        {
+            if (_studentsController.SelectedStudent != null)
+            {
+                Name.Text = _studentsController.SelectedStudent.StudentName;
             }
         }
     }

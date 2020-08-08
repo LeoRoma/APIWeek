@@ -54,8 +54,7 @@ namespace SpartaGlobalView.Pages.Courses
             string type = _coursesController.SelectedCourse.CourseType;
             int id = _coursesController.SelectedCourse.CourseId;
             _courseEditForm.GetCourseDetails(name, type, id);
-            
-            //MainFrame.Navigate(new CourseFormView());
+
             _courseEditForm.PopulateCourseField();
             _courseEditForm.Show();
         }

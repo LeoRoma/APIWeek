@@ -23,6 +23,7 @@ namespace SpartaGlobalView.Windows
     public partial class CourseEditForm : Window
     {
         private CoursesController _coursesController = new CoursesController();
+        private CoursesView _coursesView = new CoursesView();
 
         private string _name;
         private string _type;
@@ -74,6 +75,7 @@ namespace SpartaGlobalView.Windows
             MessageBox.Show("Course updated successfully");
             MainFrame.Navigate(new CoursesView());
             this.Close();
+            _coursesView.PopulateAllCourses();
         }
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
