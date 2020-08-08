@@ -29,10 +29,10 @@
                     Home
                 </Button>
 
-                <Button x:Name="ButtonShowItems" Foreground="White" FontWeight="Bold" Background="#829FD9" Margin="0,10,10,10" Height="30" Width="70" Click="ButtonShowItems_Click">
+                <Button x:Name="ButtonCourses" Foreground="White" FontWeight="Bold" Background="#829FD9" Margin="0,10,10,10" Height="30" Width="70" Click="ButtonCourses_Click">
                     Courses
                 </Button>
-                <Button x:Name="ButtonYourSpace" Foreground="White" FontWeight="Bold" Background="#CBC8DE" Margin="0,10,0,10" Height="30" Width="70" Click="ButtonYourSpace_Click">
+                <Button x:Name="ButtonStudents" Foreground="White" FontWeight="Bold" Background="#CBC8DE" Margin="0,10,0,10" Height="30" Width="70" Click="ButtonStudents_Click">
                     Students
                 </Button>
             </StackPanel>
@@ -42,10 +42,10 @@
         </Grid>
         <Grid Width="800" Height="485" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,99,0,0">
 
-            <Grid.Background>
-                <ImageBrush ImageSource=""/>
-            </Grid.Background>
-            <Frame x:Name="FrameMain" NavigationUIVisibility="Hidden"></Frame>
+            <!--<Grid.Background>
+                --><!--<ImageBrush ImageSource=""/>--><!--
+            </Grid.Background>-->
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
 
         </Grid>
     </Grid>

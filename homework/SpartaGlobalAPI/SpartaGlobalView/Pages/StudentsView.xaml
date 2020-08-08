@@ -9,6 +9,53 @@
       Title="StudentsView">
 
     <Grid>
-        
+        <ScrollViewer Grid.Column="1" Grid.Row="1" Background="#FFF1F1F1">
+            <StackPanel Width="715">
+                <TextBlock Text="Students" Margin="10" FontSize="22" FontWeight="Medium"/>
+                <StackPanel Margin="20 0" Height="350">
+                    <ListView  x:Name="ListViewStudents" SelectionChanged="ListViewStudents_SelectionChanged" Width="612" Height="350">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Id" Width="60">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding CourseId}" FontWeight="Bold" HorizontalAlignment="Right" FontSize="15"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Name" Width="230">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding StudentName}" FontWeight="Black" HorizontalAlignment="Center"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Type" Width="320">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Score}" FontWeight="Regular" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+        <TextBlock x:Name="SelectedItem" Text="Selected item:" Width="100" Height="25" Margin="42,412,658,13" FontWeight="Bold" FontSize="15"/>
+        <TextBlock x:Name="PoundSign" Text="£:" Width="50" Height="25" Margin="252,415,498,10" FontWeight="Bold" FontSize="15"/>
+        <TextBox x:Name="Price" Width="100" Height="25" Margin="277,412,423,12"/>
+        <TextBox x:Name="ProductName" Width="100" Height="25" Margin="147,412,553,13"/>
+        <Button x:Name="ButtonEditStudent" Width="90" Height="26" Margin="513,412,197,12" Click="ButtonEditStudent_Click" >
+            Edit
+        </Button>
+        <Button x:Name="ButtonAddStudent" Width="90" Height="26" Margin="418,412,292,12" Click="ButtonAddStudent_Click" >
+            Add
+        </Button>
+        <Button x:Name="ButtonDeleteStudent" Width="90" Height="26" Margin="608,412,102,12" Click="ButtonDeleteStudent_Click" >
+            Delete
+        </Button>
+        <Frame x:Name="FrameMain" NavigationUIVisibility="Hidden" Margin="-132,0,132,0"/>
     </Grid>
 </Page>

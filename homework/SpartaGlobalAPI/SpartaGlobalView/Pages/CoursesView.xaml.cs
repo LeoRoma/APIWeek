@@ -22,5 +22,29 @@ namespace SpartaGlobalView.Pages
         {
             InitializeComponent();
         }
+
+        private void ButtonAddCourse_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonEditCourse_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonDeleteCourse_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void ListViewCourses_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ListViewCourses.SelectedItem != null)
+            {
+                //_itemsManagerController.SetSelectedItem(ListViewItems.SelectedItem);
+                //PopulateItemFields();
+            }
+        }
     }
 }

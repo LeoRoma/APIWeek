@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SpartaGlobalAPI.Models
 {
@@ -13,6 +14,7 @@ namespace SpartaGlobalAPI.Models
         public int CourseId { get; set; }
         public string CourseName { get; set; }
         public string CourseType { get; set; }
+    
 
         public virtual List<Student> Students { get; set; }
     }
