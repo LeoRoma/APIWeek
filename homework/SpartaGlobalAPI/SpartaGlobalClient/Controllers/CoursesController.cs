@@ -11,6 +11,8 @@ namespace SpartaGlobalClient.Controllers
 {
     public class CoursesController
     {
+        public Course SelectedCourse { get; set; }
+
         Uri urlCourses = new Uri("https://localhost:44355/api/Courses");
 
         public Course course = new Course();
@@ -131,6 +133,11 @@ namespace SpartaGlobalClient.Controllers
             {
                 Console.WriteLine($"A course with ID: {updateCourse.CourseId} doesn't exists, can't update");
             }
+        }
+
+        public void SetSelectedCourse(object selectedCourse)
+        {
+            SelectedCourse = (Course)selectedCourse;
         }
     }
 }

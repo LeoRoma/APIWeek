@@ -28,6 +28,7 @@ namespace SpartaGlobalView.Pages
             InitializeComponent();
             //Thread.Sleep(6000);
             PopulateAllCourses();
+            PopulateCourseFields();
         }
 
         public void PopulateAllCourses()
@@ -58,8 +59,17 @@ namespace SpartaGlobalView.Pages
         {
             if (ListViewCourses.SelectedItem != null)
             {
-                //_itemsManagerController.SetSelectedItem(ListViewItems.SelectedItem);
-                //PopulateItemFields();
+                _coursesController.SetSelectedCourse(ListViewCourses.SelectedItem);
+                PopulateCourseFields();
+            }
+        }
+
+        public void PopulateCourseFields()
+        {
+            if (_coursesController.SelectedCourse != null)
+            {
+                CourseId.Text = _coursesController.SelectedCourse.CourseId.ToString();
+                CourseName.Text = _coursesController.SelectedCourse.CourseName;
             }
         }
     }

@@ -42,10 +42,10 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
-        <TextBlock x:Name="SelectedItem" Text="Selected item:" Width="100" Height="25" Margin="42,412,658,13" FontWeight="Bold" FontSize="15"/>
+        <TextBlock x:Name="SelectedItem" Text="Selected Course:" Width="100" Height="25" Margin="42,412,658,13" FontWeight="Bold" FontSize="15"/>
         <TextBlock x:Name="PoundSign" Text="£:" Width="50" Height="25" Margin="252,415,498,10" FontWeight="Bold" FontSize="15"/>
-        <TextBox x:Name="Price" Width="100" Height="25" Margin="277,412,423,12"/>
-        <TextBox x:Name="ProductName" Width="100" Height="25" Margin="147,412,553,13"/>
+        <TextBox x:Name="CourseName" Width="100" Height="25" Margin="277,412,423,12"/>
+        <TextBox x:Name="CourseId" Width="100" Height="25" Margin="147,412,553,13"/>
         <Button x:Name="ButtonEditCourse" Width="90" Height="26" Margin="513,412,197,12" Click="ButtonEditCourse_Click" >
             Edit
         </Button>
