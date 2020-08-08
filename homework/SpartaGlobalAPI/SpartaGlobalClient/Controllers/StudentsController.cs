@@ -13,11 +13,11 @@ namespace SpartaGlobalClient.Controllers
     {
         Uri urlStudents = new Uri("https://localhost:44355/api/Students");
 
-        Student student = new Student();
+        public Student student = new Student();
 
-        List<Student> students = new List<Student>();
+        public List<Student> students = new List<Student>();
 
-        async void GetStudentsAsync()
+        public async void GetStudentsAsync()
         {
             using (var httpClient = new HttpClient())
             {
@@ -26,7 +26,7 @@ namespace SpartaGlobalClient.Controllers
             }
         }
 
-        void GetStudents()
+        public void GetStudents()
         {
             using (var httpClient = new HttpClient())
             {
@@ -35,7 +35,7 @@ namespace SpartaGlobalClient.Controllers
             }
         }
 
-        bool StudentExists(int studentId)
+        public bool StudentExists(int studentId)
         {
             GetStudents();
             student = null;
@@ -50,7 +50,7 @@ namespace SpartaGlobalClient.Controllers
             }
         }
 
-        async void GetOneStudentAsync(int studentId)
+        public async void GetOneStudentAsync(int studentId)
         {
             using (var httpClient = new HttpClient())
             {
@@ -59,7 +59,7 @@ namespace SpartaGlobalClient.Controllers
             }
         }
 
-        async void PostStudentAsync(Student newStudent)
+        public async void PostStudentAsync(Student newStudent)
         {
             if (!StudentExists(newStudent.StudentId))
             {
@@ -85,7 +85,7 @@ namespace SpartaGlobalClient.Controllers
             }
         }
 
-        async void DeleteStudentAsync(int studentId)
+        public async void DeleteStudentAsync(int studentId)
         {
             if (StudentExists(studentId) == true)
             {
@@ -104,7 +104,7 @@ namespace SpartaGlobalClient.Controllers
             }
         }
 
-        async void UpdateStudentAsync(Student updateStudent)
+        public async void UpdateStudentAsync(Student updateStudent)
         {
             if (StudentExists(updateStudent.StudentId) == true)
             {
