@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using SpartaGlobalView.Windows;
 using SpartaGlobalClient.Controllers;
 
 namespace SpartaGlobalView.Pages.Courses
@@ -22,11 +23,13 @@ namespace SpartaGlobalView.Pages.Courses
     public partial class CoursesView : Page
     {
         private CoursesController _coursesController = new CoursesController();
+        private CourseFormView _courseFormView = new CourseFormView();
+        private CourseEditForm _courseEditForm = new CourseEditForm();
 
         public CoursesView()
         {
-            InitializeComponent();
             //Thread.Sleep(6000);
+            InitializeComponent();
             PopulateAllCourses();
             PopulateCourseFields();
         }
@@ -47,7 +50,14 @@ namespace SpartaGlobalView.Pages.Courses
 
         private void ButtonEditCourse_Click(object sender, RoutedEventArgs e)
         {
-
+            string name = _coursesController.SelectedCourse.CourseName;
+            string type = _coursesController.SelectedCourse.CourseType;
+            int id = _coursesController.SelectedCourse.CourseId;
+            _courseEditForm.GetCourseDetails(name, type, id);
+            
+            //MainFrame.Navigate(new CourseFormView());
+            _courseEditForm.PopulateCourseField();
+            _courseEditForm.Show();
         }
 
         private void ButtonDeleteCourse_Click(object sender, RoutedEventArgs e)

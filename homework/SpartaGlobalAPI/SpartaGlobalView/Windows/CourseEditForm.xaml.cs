@@ -8,25 +8,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using SpartaGlobalClient.Controllers;
 using SpartaGlobalClient.Models;
+using SpartaGlobalView.Pages;
+using SpartaGlobalView.Pages.Courses;
 
-namespace SpartaGlobalView.Pages.Courses
+namespace SpartaGlobalView.Windows
 {
     /// <summary>
-    /// Interaction logic for CourseFormView.xaml
+    /// Interaction logic for CourseEditForm.xaml
     /// </summary>
-    public partial class CourseFormView : Page
+    public partial class CourseEditForm : Window
     {
         private CoursesController _coursesController = new CoursesController();
 
         private string _name;
         private string _type;
+        private int _id;
 
-        public CourseFormView()
+        public CourseEditForm()
         {
             InitializeComponent();
             PopulateCourseField();
@@ -41,10 +43,11 @@ namespace SpartaGlobalView.Pages.Courses
             }
         }
 
-        public void GetCourseDetails(string name, string type)
+        public void GetCourseDetails(string name, string type, int id)
         {
             SetCourseName(name);
             SetCourseType(type);
+            SetCourseId(id);
         }
 
         public void SetCourseName(string name)
@@ -57,22 +60,20 @@ namespace SpartaGlobalView.Pages.Courses
             _type = type;
         }
 
-        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        public void SetCourseId(int id)
         {
-            string name = TextBoxName.Text;
-            string type = TextBoxType.Text;
-            _coursesController.PostCourse(name, type);
-            MessageBox.Show("Course saved successfully");
-            MainFrame.Navigate(new CoursesView());
+            _id = id;
         }
 
         private void ButtonUpdate_Click(object sender, RoutedEventArgs e)
         {
-            //string name = TextBoxName.Text;
-            //string type = TextBoxType.Text;
-            //_coursesController.UpdateCourse(name, type);
-            //MessageBox.Show("Course updated successfully");
-            //MainFrame.Navigate(new CoursesView());
+            string name = TextBoxName.Text;
+            string type = TextBoxType.Text;
+            int id = _id;
+            _coursesController.UpdateCourse(name, type, id);
+            MessageBox.Show("Course updated successfully");
+            MainFrame.Navigate(new CoursesView());
+            this.Close();
         }
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)

@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Windows\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SpartaGlobalAPI\SpartaGlobalAPI.csproj" />
     <ProjectReference Include="..\SpartaGlobalClient\SpartaGlobalClient.csproj" />
   </ItemGroup>

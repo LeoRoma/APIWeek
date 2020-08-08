@@ -40,9 +40,9 @@ namespace SpartaGlobalClient
 
         static Course updateCourse = new Course()
         {
-            CourseId = 4,
-            CourseName = "Engineering 100",
-            CourseType = "Test"
+            CourseId = 3,
+            CourseName = "Engineering 23",
+            CourseType = "MegaTest"
         };
 
         static Student updateStudent = new Student()
@@ -87,7 +87,7 @@ namespace SpartaGlobalClient
             //GetOneCourseAsync(1);
             //Thread.Sleep(2000);
             //Console.WriteLine($"{course.CourseName}, {course.CourseType}");
-            
+
             //// Get student Async
             //Console.WriteLine("\n\nOne Student");
             //GetOneStudentAsync(1);
@@ -109,7 +109,7 @@ namespace SpartaGlobalClient
             //DeleteStudentAsync(14);
             //Thread.Sleep(2000);
 
-            //// Update Course
+            //Update Course
             //UpdateCourseAsync(updateCourse);
             //Thread.Sleep(2000);
 

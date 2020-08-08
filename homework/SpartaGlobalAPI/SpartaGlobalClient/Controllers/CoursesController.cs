@@ -185,6 +185,39 @@ namespace SpartaGlobalClient.Controllers
                 Console.WriteLine($"A course with ID: {updateCourse.CourseId} doesn't exists, can't update");
             }
         }
+        public void UpdateCourse(string name, string type, int courseId)
+        {
+            Course updateCourse = new Course()
+            {
+                CourseId = courseId,
+                CourseName = name,
+                CourseType = type
+            };
+            if (CourseExists(updateCourse.CourseId) == true)
+            {
+                string updateCourseAsJson = JsonConvert.SerializeObject(updateCourse, Formatting.Indented);
+
+                // Convert this to HTTP
+                var httpContent = new StringContent(updateCourseAsJson);
+
+                // Add headers before send
+                httpContent.Headers.ContentType.MediaType = "application/json";
+                httpContent.Headers.ContentType.CharSet = "UTF-8";
+
+                using (var httpClient = new HttpClient())
+                {
+                    var httpResponse = httpClient.PutAsync($"{urlCourses}/{updateCourse.CourseId}", httpContent);
+                    if (httpResponse.Result.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Course {courseId} successfully updated");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"A course with ID: {courseId} doesn't exists, can't update");
+            }
+        }
 
         public void SetSelectedCourse(object selectedCourse)
         {
