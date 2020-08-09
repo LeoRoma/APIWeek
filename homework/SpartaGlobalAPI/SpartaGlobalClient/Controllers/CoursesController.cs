@@ -94,8 +94,6 @@ namespace SpartaGlobalClient.Controllers
                 CourseName = name,
                 CourseType = type
             };
-            //if (!CourseExists(newCourse.CourseId))
-            //{
             string newCourseAsJson = JsonConvert.SerializeObject(newCourse, Formatting.Indented);
 
             var httpContent = new StringContent(newCourseAsJson);
@@ -112,37 +110,30 @@ namespace SpartaGlobalClient.Controllers
                 }
             }
         }
-        //else
+
+        //public async void DeleteCourseAsync(int courseId)
         //{
-        //    Console.WriteLine($"Course with Name: {newCourse.CourseName} already exists, can't create a new customer");
-        //}
-
-
-        //    public async void DeleteCourseAsync(int courseId)
-        //    {
         //    if (CourseExists(courseId) == true)
         //    {
         //        // Send Data
         //        using (var httpClient = new HttpClient())
-        //            {
-        //                var httpResponse = await httpClient.DeleteAsync($"{urlCourses}/{courseId}");
-        //                if (httpResponse.IsSuccessStatusCode)
-        //                {
-        //                    Console.WriteLine($"Course {courseId} successfully deleted");
-        //                }
-        //            }
-        //}
-        //        else
         //        {
-        //            Console.WriteLine($"A course with ID: {courseId} doesn't exists, can't delete");
+        //            var httpResponse = await httpClient.DeleteAsync($"{urlCourses}/{courseId}");
+        //            if (httpResponse.IsSuccessStatusCode)
+        //            {
+        //                Console.WriteLine($"Course {courseId} successfully deleted");
+        //            }
         //        }
         //    }
+        //    else
+        //    {
+        //        Console.WriteLine($"A course with ID: {courseId} doesn't exists, can't delete");
+        //    }
+        //}
 
         public void DeleteCourse(int courseId)
         {
-            //if (CourseExists(courseId) == true)
-            //{
-            // Send Data
+          
             using (var httpClient = new HttpClient())
             {
                 var httpResponse = httpClient.DeleteAsync($"{urlCourses}/{courseId}");
@@ -152,11 +143,6 @@ namespace SpartaGlobalClient.Controllers
                 }
             }
         }
-        //else
-        //{
-        //    Console.WriteLine($"A course with ID: {courseId} doesn't exists, can't delete");
-        //}
-
 
         //public async void UpdateCourseAsync(Course updateCourse)
         //{
@@ -193,8 +179,6 @@ namespace SpartaGlobalClient.Controllers
                 CourseName = name,
                 CourseType = type
             };
-            //if (CourseExists(updateCourse.CourseId) == true)
-            //{
             string updateCourseAsJson = JsonConvert.SerializeObject(updateCourse, Formatting.Indented);
 
             // Convert this to HTTP
@@ -213,11 +197,6 @@ namespace SpartaGlobalClient.Controllers
                 }
             }
         }
-        //else
-        //{
-        //    Console.WriteLine($"A course with ID: {courseId} doesn't exists, can't update");
-        //}
-
 
         public void SetSelectedCourse(object selectedCourse)
         {
