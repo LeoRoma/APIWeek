@@ -16,21 +16,35 @@
                     <ListView  x:Name="ListViewStudents" SelectionChanged="ListViewStudents_SelectionChanged"  Width="510" Height="250">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Id" Width="60">
+                                <GridViewColumn Header="Id" Width="50">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding StudentId}" FontWeight="Bold" HorizontalAlignment="Right" FontSize="15"/>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Header="Name" Width="230">
+                                <GridViewColumn Header="Name" Width="150">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding StudentName}" FontWeight="Black" HorizontalAlignment="Center"/>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Header="Type" Width="320">
+                                <GridViewColumn Header="Email" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Email}" FontWeight="Regular" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Course ID" Width="60">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding CourseId}" FontWeight="Regular" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Score" Width="60">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding Score}" FontWeight="Regular" />
@@ -41,20 +55,29 @@
                         </ListView.View>
                     </ListView>
                 </StackPanel>
+                <ComboBox x:Name="Course" Loaded="ComboBox_Loaded" SelectionChanged="ComboBox_SelectionChanged" Width="200"/>
+                
             </StackPanel>
         </ScrollViewer>
-        <TextBlock x:Name="SelectedItem" Text="Selected Course:" Width="120" Height="25" Margin="3,179,410,13" FontWeight="Bold" FontSize="15"/>
+        <TextBlock x:Name="SelectedItem" Text="Selected Student:" Width="120" Height="25" Margin="3,179,410,13" FontWeight="Bold" FontSize="15"/>
         <TextBlock x:Name="Name" Text="Name" Width="50" Height="25" Margin="3,230,480,13" FontWeight="Bold" FontSize="15"/>
         <TextBlock x:Name="StudentScore" Text="Score" Height="25" Margin="135,300,0,30" FontWeight="Bold" FontSize="15"/>
-        <TextBox x:Name="StudentName" Width="200" Height="25" Margin="1,230,222,12"/>
-        <TextBox x:Name="Score" Width="200" Height="25" Margin="1,310,222,40"/>
-        <Button x:Name="ButtonEditStudent" Width="90" Height="26" Margin="240,280,30,12" Click="ButtonEditStudent_Click" Background="Purple" Foreground="Salmon" >
+        <TextBlock x:Name="SEmail" Text="Email" Height="25" Margin="135,350,0,30" FontWeight="Bold" FontSize="15"/>
+        <TextBlock x:Name="CourseID" Text="Course ID" Height="25" Margin="135,400,0,30" FontWeight="Bold" FontSize="15"/>
+        <TextBox x:Name="StudentName" Width="200" Height="25" Margin="50,230,222,12"/>
+        <TextBox x:Name="Score" Width="200" Height="25" Margin="50,310,222,40"/>
+        <TextBox x:Name="Email" Width="200" Height="25" Margin="50,360,222,40"/>
+        <TextBox x:Name="CourseId" Width="200" Height="25" Margin="50,410,222,40"/>
+        <Button x:Name="ButtonGo" Width="90" Height="26" Margin="30,70,30,2" Click="ButtonGo_Click" Background="Purple" Foreground="Salmon" >
+            Go
+        </Button>
+        <Button x:Name="ButtonEditStudent" Width="90" Height="26" Margin="240,370,30,2" Click="ButtonEditStudent_Click" Background="Purple" Foreground="Salmon" >
             Edit
         </Button>
-        <Button x:Name="ButtonAddStudent" Width="90" Height="26" Margin="401,240,0,100" Click="ButtonAddStudent_Click" Background="Purple" Foreground="Salmon">
+        <Button x:Name="ButtonAddStudent" Width="90" Height="26" Margin="401,320,3,10" Click="ButtonAddStudent_Click" Background="Purple" Foreground="Salmon">
             Add
         </Button>
-        <Button x:Name="ButtonDeleteStudent" Width="90" Height="26" Margin="401,360,3,92" Click="ButtonDeleteStudent_Click" Background="Purple" Foreground="Salmon" >
+        <Button x:Name="ButtonDeleteStudent" Width="90" Height="26" Margin="401,370,3,2" Click="ButtonDeleteStudent_Click" Background="Purple" Foreground="Salmon" >
             Delete
         </Button>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />

@@ -10,8 +10,8 @@ using SpartaGlobalAPI.Models;
 namespace SpartaGlobalAPI.Migrations
 {
     [DbContext(typeof(SpartaGlobalDBContext))]
-    [Migration("20200807134034_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200809123406_AddedEmail")]
+    partial class AddedEmail
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,6 +52,9 @@ namespace SpartaGlobalAPI.Migrations
 
                     b.Property<int?>("CourseId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Score")
                         .HasColumnType("int");

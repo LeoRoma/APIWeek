@@ -12,12 +12,14 @@ namespace SpartaGlobalClient.Controllers
     public class StudentsController
     {
         public Student SelectedStudent { get; set; }
+        public Course SelectedCourse { get; set; }
 
         Uri urlStudents = new Uri("https://localhost:44355/api/Students");
 
         public Student student = new Student();
 
         public List<Student> students = new List<Student>();
+        public List<Student> studentsByCourse = new List<Student>();
 
         public async void GetStudentsAsync()
         {
@@ -221,6 +223,24 @@ namespace SpartaGlobalClient.Controllers
         public void SetSelectedStudent(object selectedStudent)
         {
             SelectedStudent = (Student)selectedStudent;
+        }
+
+        public void SetSelectedCourse(object selectedCourse)
+        {
+            SelectedCourse = (Course)selectedCourse;
+        }
+
+        public List<Student> GetStudentsByCourse()
+        {
+            
+            foreach (var student in students)
+            {
+                if (SelectedCourse.CourseId == student.CourseId)
+                {
+                    studentsByCourse.Add(student);
+                }
+            }
+            return studentsByCourse;
         }
     }
 }

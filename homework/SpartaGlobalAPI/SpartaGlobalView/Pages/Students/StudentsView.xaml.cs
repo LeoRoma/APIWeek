@@ -22,6 +22,8 @@ namespace SpartaGlobalView.Pages.Students
     public partial class StudentsView : Page
     {
         private StudentsController _studentsController = new StudentsController();
+        private CoursesController _coursesController = new CoursesController();
+
         public StudentsView()
         {
             InitializeComponent();
@@ -76,5 +78,34 @@ namespace SpartaGlobalView.Pages.Students
                 Score.Text = _studentsController.SelectedStudent.Score.ToString();
             }
         }
+
+        //private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    _coursesController.GetCourses();
+        //    var combo = sender as ComboBox;
+        //    combo.ItemsSource = _coursesController.courses;
+        //    combo.SelectedIndex = 0;
+        //}
+
+        //private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if(_studentsController.SelectedCourse != null)
+        //    {
+        //        var selectedComboCourse = sender as ComboBox;
+        //        _studentsController.SetSelectedCourse(selectedComboCourse.SelectedItem);
+        //        PopulateStudentByCourse();
+        //    }
+            
+        //}
+
+        //public void PopulateStudentByCourse()
+        //{
+        //    ListViewStudents.ItemsSource = _studentsController.studentsByCourse;
+        //}
+
+        //private void ButtonGo_Click(object sender, RoutedEventArgs e)
+        //{
+            
+        //}
     }
 }

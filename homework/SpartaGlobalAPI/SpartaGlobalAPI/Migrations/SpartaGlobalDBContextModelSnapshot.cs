@@ -51,6 +51,9 @@ namespace SpartaGlobalAPI.Migrations
                     b.Property<int?>("CourseId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("Score")
                         .HasColumnType("int");
 
