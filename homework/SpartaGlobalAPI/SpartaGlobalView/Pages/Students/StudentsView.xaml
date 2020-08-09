@@ -55,7 +55,7 @@
                         </ListView.View>
                     </ListView>
                 </StackPanel>
-                <ComboBox x:Name="Course" Loaded="ComboBox_Loaded" SelectionChanged="ComboBox_SelectionChanged" Width="200"/>
+              
                 
             </StackPanel>
         </ScrollViewer>
@@ -68,9 +68,7 @@
         <TextBox x:Name="Score" Width="200" Height="25" Margin="50,310,222,40"/>
         <TextBox x:Name="Email" Width="200" Height="25" Margin="50,360,222,40"/>
         <TextBox x:Name="CourseId" Width="200" Height="25" Margin="50,410,222,40"/>
-        <Button x:Name="ButtonGo" Width="90" Height="26" Margin="30,70,30,2" Click="ButtonGo_Click" Background="Purple" Foreground="Salmon" >
-            Go
-        </Button>
+   
         <Button x:Name="ButtonEditStudent" Width="90" Height="26" Margin="240,370,30,2" Click="ButtonEditStudent_Click" Background="Purple" Foreground="Salmon" >
             Edit
         </Button>

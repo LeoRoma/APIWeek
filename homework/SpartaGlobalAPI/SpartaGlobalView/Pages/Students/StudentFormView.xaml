@@ -17,9 +17,11 @@
             </Grid.ColumnDefinitions>
             <TextBlock x:Name="TextBlockStudentName" Height="23" HorizontalAlignment="Left" Margin="164,73,0,0" Text="Name" VerticalAlignment="Top" Width="68" />
             <TextBlock x:Name="TextBlockStudentCourseId" Height="23" HorizontalAlignment="Left" Margin="164,116,0,0" Text="Course ID" VerticalAlignment="Top" Width="78" />
+            <TextBlock x:Name="TextBlockEmail" Height="23" HorizontalAlignment="Left" Margin="164,154,0,0" Text="Email" VerticalAlignment="Top" Width="78" />
 
             <TextBox x:Name="TextBoxName" Height="23" HorizontalAlignment="Left" Margin="236,73,0,0" VerticalAlignment="Top" Width="246" Grid.ColumnSpan="2" />
             <TextBox x:Name="TextBoxCourseId" Height="22" HorizontalAlignment="Left" Margin="236,116,0,0" VerticalAlignment="Top" Width="248" Grid.ColumnSpan="2" />
+            <TextBox x:Name="TextBoxEmail" Height="22" HorizontalAlignment="Left" Margin="234,154,0,0" VerticalAlignment="Top" Width="248" Grid.ColumnSpan="2" />
 
             <Button x:Name="ButtonSave" Content="Save" HorizontalAlignment="Left" Margin="321,191,0,0" Width="76" Click="ButtonSave_Click" Grid.ColumnSpan="2" Background="Purple" Foreground="Salmon"/>
             <Button x:Name="ButtonBack" Content="Back" HorizontalAlignment="Left" Margin="48,191,0,0" Width="76" Click="ButtonBack_Click" Grid.Column="1" Height="20" VerticalAlignment="Top" Background="Purple" Foreground="Salmon"/>

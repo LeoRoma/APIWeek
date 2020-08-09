@@ -89,12 +89,13 @@ namespace SpartaGlobalClient.Controllers
             }
         }
 
-        public void PostStudent(string name, int courseId)
+        public void PostStudent(string name, int courseId, string email)
         {
             Student newStudent = new Student()
             {
                 StudentName = name,
-                CourseId = courseId
+                CourseId = courseId,
+                Email = email
             };
             if (!StudentExists(newStudent.StudentId))
             {
@@ -186,13 +187,15 @@ namespace SpartaGlobalClient.Controllers
             }
         }
 
-        public void UpdateStudent(string name, int score, int studentId)
+        public void UpdateStudent(string name, int score, int studentId, string email, int courseId)
         {
             Student updateStudent = new Student()
             {
                 StudentId = studentId,
                 StudentName = name,
-                Score = score
+                Score = score,
+                Email = email,
+                CourseId = courseId
             };
             if (StudentExists(updateStudent.StudentId) == true)
             {

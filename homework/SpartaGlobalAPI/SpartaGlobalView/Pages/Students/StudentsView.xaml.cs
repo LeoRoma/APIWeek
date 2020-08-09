@@ -47,8 +47,10 @@ namespace SpartaGlobalView.Pages.Students
         {
             string name = StudentName.Text;
             int type = Int32.Parse(Score.Text);
-            int id = _studentsController.SelectedStudent.StudentId;
-            _studentsController.UpdateStudent(name, type, id);
+            int studentId = _studentsController.SelectedStudent.StudentId;
+            string email = Email.Text;
+            int courseId = Int32.Parse(CourseId.Text);
+            _studentsController.UpdateStudent(name, type, studentId, email, courseId);
             MessageBox.Show("Course updated successfully");
             MainFrame.Navigate(new StudentsView());
             PopulateAllStudents();
@@ -76,6 +78,8 @@ namespace SpartaGlobalView.Pages.Students
             {
                 StudentName.Text = _studentsController.SelectedStudent.StudentName;
                 Score.Text = _studentsController.SelectedStudent.Score.ToString();
+                Email.Text = _studentsController.SelectedStudent.Email;
+                CourseId.Text = _studentsController.SelectedStudent.CourseId.ToString();
             }
         }
 

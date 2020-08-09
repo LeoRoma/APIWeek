@@ -30,7 +30,8 @@ namespace SpartaGlobalView.Pages.Students
         {
             string name = TextBoxName.Text;
             int courseId = Int32.Parse(TextBoxCourseId.Text);
-            _studentsController.PostStudent(name, courseId);
+            string email = TextBoxEmail.Text;
+            _studentsController.PostStudent(name, courseId, email);
             MessageBox.Show("Course saved successfully");
             MainFrame.Navigate(new StudentsView());
         }
