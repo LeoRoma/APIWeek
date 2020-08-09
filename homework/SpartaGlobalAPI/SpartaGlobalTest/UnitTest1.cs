@@ -1,18 +1,25 @@
 using NUnit.Framework;
+using SpartaGlobalClient.Controllers;
+using SpartaGlobalClient.Models;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
 
 namespace SpartaGlobalTest
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
+        
+        private CoursesController _coursesController = new CoursesController();
+
+        private Uri urlCourses = new Uri("https://localhost:44355/api/Courses");
 
         [Test]
-        public void Test1()
+        public void GetCourses()
         {
-            Assert.Pass();
+            _coursesController.GetCourses();
+            Assert.AreEqual(_coursesController.courses[0].CourseId, 13);
+            Assert.AreEqual(_coursesController.courses[1].CourseName, "Engineering 66");
         }
     }
 }
