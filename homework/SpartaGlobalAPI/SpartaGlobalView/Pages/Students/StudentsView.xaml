@@ -9,9 +9,9 @@
       Title="StudentsView">
 
     <Grid>
-        <ScrollViewer Grid.Column="1" Grid.Row="1" Background="#FFF1F1F1">
+        <ScrollViewer Grid.Column="1" Grid.Row="1" Background="LightGray">
             <StackPanel Width="550" >
-                <TextBlock Text="Courses" Margin="10" FontSize="22" FontWeight="Medium"/>
+                <TextBlock Text="Students" Margin="10" FontSize="22" FontWeight="Medium"/>
                 <StackPanel Margin="20 0" Height="250">
                     <ListView  x:Name="ListViewStudents" SelectionChanged="ListViewStudents_SelectionChanged"  Width="510" Height="250">
                         <ListView.View>
@@ -48,13 +48,13 @@
         <TextBlock x:Name="StudentScore" Text="Score" Height="25" Margin="135,300,0,30" FontWeight="Bold" FontSize="15"/>
         <TextBox x:Name="StudentName" Width="200" Height="25" Margin="1,230,222,12"/>
         <TextBox x:Name="Score" Width="200" Height="25" Margin="1,310,222,40"/>
-        <Button x:Name="ButtonEditStudent" Width="90" Height="26" Margin="240,280,30,12" Click="ButtonEditStudent_Click" >
+        <Button x:Name="ButtonEditStudent" Width="90" Height="26" Margin="240,280,30,12" Click="ButtonEditStudent_Click" Background="Purple" Foreground="Salmon" >
             Edit
         </Button>
-        <Button x:Name="ButtonAddStudent" Width="90" Height="26" Margin="401,240,0,100" Click="ButtonAddStudent_Click" >
+        <Button x:Name="ButtonAddStudent" Width="90" Height="26" Margin="401,240,0,100" Click="ButtonAddStudent_Click" Background="Purple" Foreground="Salmon">
             Add
         </Button>
-        <Button x:Name="ButtonDeleteStudent" Width="90" Height="26" Margin="401,360,3,92" Click="ButtonDeleteStudent_Click" >
+        <Button x:Name="ButtonDeleteStudent" Width="90" Height="26" Margin="401,360,3,92" Click="ButtonDeleteStudent_Click" Background="Purple" Foreground="Salmon" >
             Delete
         </Button>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />

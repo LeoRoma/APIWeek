@@ -77,8 +77,8 @@ namespace SpartaGlobalView.Pages.Courses
         {
             if (_coursesController.SelectedCourse != null)
             {
-                CourseName.Text = _coursesController.SelectedCourse.CourseId.ToString();
-                CourseType.Text = _coursesController.SelectedCourse.CourseName;
+                CourseName.Text = _coursesController.SelectedCourse.CourseName;
+                CourseType.Text = _coursesController.SelectedCourse.CourseType;
             }
         }
     }

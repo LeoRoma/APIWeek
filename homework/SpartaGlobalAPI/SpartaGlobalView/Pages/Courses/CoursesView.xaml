@@ -8,9 +8,9 @@
       d:DesignHeight="600" d:DesignWidth="800"
       Title="CoursesView">
     <Grid>
-        <ScrollViewer Grid.Column="1" Grid.Row="1" Background="#FFF1F1F1">
+        <ScrollViewer Grid.Column="1" Grid.Row="1" Background="LightGray">
             <StackPanel Width="550" >
-                <TextBlock Text="Courses" Margin="10" FontSize="22" FontWeight="Medium"/>
+                <TextBlock Text="Courses" Margin="10" FontSize="22" FontWeight="Medium" Foreground="Black"/>
                 <StackPanel Margin="20 0" Height="250">
                     <ListView  x:Name="ListViewCourses" SelectionChanged="ListViewCourses_SelectionChanged" Width="510" Height="250">
                         <ListView.View>
@@ -47,13 +47,13 @@
         <TextBlock x:Name="Type" Text="Type" Height="25" Margin="135,300,0,30" FontWeight="Bold" FontSize="15"/>
         <TextBox x:Name="CourseName" Width="200" Height="25" Margin="1,230,222,12"/>
         <TextBox x:Name="CourseType" Width="200" Height="25" Margin="1,310,222,40"/>
-        <Button x:Name="ButtonEditCourse" Width="90" Height="26" Margin="240,280,30,12" Click="ButtonEditCourse_Click" >
+        <Button x:Name="ButtonEditCourse" Width="90" Height="26" Margin="240,280,30,12" Click="ButtonEditCourse_Click" Background="Purple" Foreground="Salmon">
             Edit
         </Button>
-        <Button x:Name="ButtonAddCourse" Width="90" Height="26" Margin="401,240,0,100" Click="ButtonAddCourse_Click" >
+        <Button x:Name="ButtonAddCourse" Width="90" Height="26" Margin="401,240,0,100" Click="ButtonAddCourse_Click" Background="Purple" Foreground="Salmon" >
             Add
         </Button>
-        <Button x:Name="ButtonDeleteCourse" Width="90" Height="26" Margin="401,360,3,92" Click="ButtonDeleteCourse_Click" >
+        <Button x:Name="ButtonDeleteCourse" Width="90" Height="26" Margin="401,360,3,92" Click="ButtonDeleteCourse_Click"  Background="Purple" Foreground="Salmon">
             Delete
         </Button>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>

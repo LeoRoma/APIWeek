@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:SpartaGlobalView"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
-    <Grid>
+    <Grid Background="LightGray">
 
 
         <Rectangle Height="100" VerticalAlignment="Top">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.1,4" StartPoint="1.1,3">
-                    <GradientStop Color="#829FD9"/>
-                    <GradientStop Color="#5E6EBD" Offset="1"/>
-                    <GradientStop Color="#CBC8DE" Offset="0.546"/>
+                    <GradientStop Color="Purple"/>
+                    <!--<GradientStop Color="#5E6EBD" Offset="1"/>
+                    <GradientStop Color="#CBC8DE" Offset="0.546"/>-->
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
@@ -22,17 +22,17 @@
                   VerticalAlignment="Top"
                   Height="100">
 
-            <Label x:Name="Header" Content="Sparta Global Manager" Grid.Row="0" FontSize="35" HorizontalAlignment="Center" Foreground="White"/>
+            <Label x:Name="Header" Content="Sparta Global Manager" Grid.Row="0" FontSize="35" HorizontalAlignment="Center" Foreground="Salmon"/>
             <StackPanel x:Name="stack_panel_top" Orientation="Horizontal"  VerticalAlignment="Bottom">
 
-                <Button x:Name="ButtonHome" Foreground="White" FontWeight="ExtraBold" Background="#5E6EBD" Margin="10,10,10,10" Height="30" Width="70" Click="ButtonHome_Click">
+                <Button x:Name="ButtonHome" Foreground="White" FontWeight="ExtraBold" Background="Black" Margin="10,10,10,10" Height="30" Width="70" Click="ButtonHome_Click">
                     Home
                 </Button>
 
-                <Button x:Name="ButtonCourses" Foreground="White" FontWeight="Bold" Background="#829FD9" Margin="0,10,10,10" Height="30" Width="70" Click="ButtonCourses_Click">
+                <Button x:Name="ButtonCourses" Foreground="White" FontWeight="Bold" Background="Black" Margin="0,10,10,10" Height="30" Width="70" Click="ButtonCourses_Click">
                     Courses
                 </Button>
-                <Button x:Name="ButtonStudents" Foreground="White" FontWeight="Bold" Background="#CBC8DE" Margin="0,10,0,10" Height="30" Width="70" Click="ButtonStudents_Click">
+                <Button x:Name="ButtonStudents" Foreground="White" FontWeight="Bold" Background="Black" Margin="0,10,0,10" Height="30" Width="70" Click="ButtonStudents_Click">
                     Students
                 </Button>
             </StackPanel>
