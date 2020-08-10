@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_32_entity_code_first", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_33_xml", "lab_33_xml\lab_33_xml.csproj", "{DDF8ED08-AA7F-410F-BA99-6562AC99DBDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_33b_xml_serialise", "lab_33b_xml_serialise\lab_33b_xml_serialise.csproj", "{9AC1148A-3A81-42E6-9602-2B8FFD9AEC02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{DDF8ED08-AA7F-410F-BA99-6562AC99DBDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDF8ED08-AA7F-410F-BA99-6562AC99DBDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDF8ED08-AA7F-410F-BA99-6562AC99DBDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC1148A-3A81-42E6-9602-2B8FFD9AEC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC1148A-3A81-42E6-9602-2B8FFD9AEC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC1148A-3A81-42E6-9602-2B8FFD9AEC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC1148A-3A81-42E6-9602-2B8FFD9AEC02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

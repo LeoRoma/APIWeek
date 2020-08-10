@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace lab_33_xml
@@ -30,6 +31,17 @@ namespace lab_33_xml
                 )
             );
             Console.WriteLine(xml02);
+
+            //Write data to disk
+            var doc02 = new XDocument(xml02);
+            doc02.Save("XMLdoc02.xml");
+
+            // read back data
+            var readDoc02 = new XmlDocument();
+            readDoc02.Load("XMLdoc02.xml");
+
+            // print
+            Console.WriteLine(readDoc02.InnerXml);
         }
     }
 }
