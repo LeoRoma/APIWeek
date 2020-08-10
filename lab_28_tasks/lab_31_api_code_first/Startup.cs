@@ -28,7 +28,7 @@ namespace lab_31_api_code_first
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MyDbContext>(options =>
-                options.UseSqlite("Data Source = APIDatabase.db")
+                options.UseSqlite("DataSource=APIDatabase.db")
             );
             services.AddControllers();
         }
@@ -36,7 +36,7 @@ namespace lab_31_api_code_first
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, MyDbContext db)
         {
-            db.Database.EnsureDeleted();
+            //db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
 
             if (env.IsDevelopment())

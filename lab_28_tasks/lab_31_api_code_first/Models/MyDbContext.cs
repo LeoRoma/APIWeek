@@ -21,6 +21,8 @@ namespace lab_31_api_code_first.Models
                 item.Property(myclass => myclass.MyClassId).IsRequired();
             });
             builder.Entity<MyClass>().HasData(new MyClass { MyClassId = 1, FieldName1 = "Some data" });
+            builder.Entity<MyClass>().HasData(new MyClass { MyClassId = 2, FieldName1 = "Some more data" });
+            builder.Entity<MyClass>().HasData(new MyClass { MyClassId = 3, FieldName1 = "Some extra data" });
         }
     }
 }
