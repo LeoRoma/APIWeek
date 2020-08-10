@@ -22,37 +22,37 @@ namespace SpartaGlobalAPI.Controllers
 
         // GET: api/Students
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Students>>> GetStudents()
+        public async Task<ActionResult<IEnumerable<Student>>> GetStudents()
         {
             return await _context.Students.ToListAsync();
         }
 
         // GET: api/Students/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Students>> GetStudents(int id)
+        public async Task<ActionResult<Student>> GetStudent(int id)
         {
-            var students = await _context.Students.FindAsync(id);
+            var student = await _context.Students.FindAsync(id);
 
-            if (students == null)
+            if (student == null)
             {
                 return NotFound();
             }
 
-            return students;
+            return student;
         }
 
         // PUT: api/Students/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutStudents(int id, Students students)
+        public async Task<IActionResult> PutStudent(int id, Student student)
         {
-            if (id != students.StudentId)
+            if (id != student.StudentId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(students).State = EntityState.Modified;
+            _context.Entry(student).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace SpartaGlobalAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StudentsExists(id))
+                if (!StudentExists(id))
                 {
                     return NotFound();
                 }
@@ -77,31 +77,31 @@ namespace SpartaGlobalAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Students>> PostStudents(Students students)
+        public async Task<ActionResult<Student>> PostStudent(Student student)
         {
-            _context.Students.Add(students);
+            _context.Students.Add(student);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetStudents", new { id = students.StudentId }, students);
+            return CreatedAtAction("GetStudent", new { id = student.StudentId }, student);
         }
 
         // DELETE: api/Students/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Students>> DeleteStudents(int id)
+        public async Task<ActionResult<Student>> DeleteStudent(int id)
         {
-            var students = await _context.Students.FindAsync(id);
-            if (students == null)
+            var student = await _context.Students.FindAsync(id);
+            if (student == null)
             {
                 return NotFound();
             }
 
-            _context.Students.Remove(students);
+            _context.Students.Remove(student);
             await _context.SaveChangesAsync();
 
-            return students;
+            return student;
         }
 
-        private bool StudentsExists(int id)
+        private bool StudentExists(int id)
         {
             return _context.Students.Any(e => e.StudentId == id);
         }

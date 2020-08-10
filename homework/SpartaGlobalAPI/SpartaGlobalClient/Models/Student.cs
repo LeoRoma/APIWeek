@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace SpartaGlobalAPI.Models
+namespace SpartaGlobalClient.Models
 {
-    public partial class Students
+    public partial class Student
     {
         public int StudentId { get; set; }
         public string StudentName { get; set; }
+        public string Email { get; set; }
         public int? Score { get; set; }
         public int? CourseId { get; set; }
-
-        public virtual Courses Course { get; set; }
+    
+        public virtual Course Course { get; set; }
     }
 }
