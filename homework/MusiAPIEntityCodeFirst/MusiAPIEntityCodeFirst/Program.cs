@@ -14,7 +14,7 @@ namespace MusiAPIEntityCodeFirst
             List<Song> songs = new List<Song>();
             using (var db = new MusicContext())
             {
-                db.Database.EnsureDeleted();
+                //db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
 
                 artists = db.Artists.ToList();
