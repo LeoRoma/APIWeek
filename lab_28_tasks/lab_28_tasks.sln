@@ -21,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_28c_task_parallel_proce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_29_async_await", "lab_29_async_await\lab_29_async_await.csproj", "{9E033AC6-E49C-4BA2-9095-3837CB6D7F33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_30_http", "lab_30_http\lab_30_http.csproj", "{ED7D01A8-240B-4EE1-9B21-05B8CD0E8ACA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_30_http", "lab_30_http\lab_30_http.csproj", "{ED7D01A8-240B-4EE1-9B21-05B8CD0E8ACA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_30a_http_deserialise_to_json", "lab_30a_http_deserialise_to_json\lab_30a_http_deserialise_to_json.csproj", "{8D90C4A4-874E-42F7-9AC2-976ABABB0FDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_30a_http_deserialise_to_json", "lab_30a_http_deserialise_to_json\lab_30a_http_deserialise_to_json.csproj", "{8D90C4A4-874E-42F7-9AC2-976ABABB0FDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_31_api_code_first", "lab_31_api_code_first\lab_31_api_code_first.csproj", "{54C166D6-D5D3-4533-AD2A-3CA69223B8EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{8D90C4A4-874E-42F7-9AC2-976ABABB0FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D90C4A4-874E-42F7-9AC2-976ABABB0FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D90C4A4-874E-42F7-9AC2-976ABABB0FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54C166D6-D5D3-4533-AD2A-3CA69223B8EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54C166D6-D5D3-4533-AD2A-3CA69223B8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54C166D6-D5D3-4533-AD2A-3CA69223B8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54C166D6-D5D3-4533-AD2A-3CA69223B8EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
