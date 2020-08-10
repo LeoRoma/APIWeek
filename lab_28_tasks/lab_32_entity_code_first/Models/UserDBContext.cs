@@ -13,7 +13,8 @@ namespace lab_32_entity_code_first.Models
         // no Startup.cs so => connect to database Here!
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            builder.UseSqlite("DataSource=UserDatabase.db");
+            //builder.UseSqlite("DataSource=UserDatabase.db");
+            //builder.UseSqlServer(@"DataSource=(localdb)\mssqllocaldb;Initial Catalog = UserDatabase.db;");
         }
 
         // For seeding we need to add ID, is not going to autoincrement

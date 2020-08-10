@@ -25,9 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_30_http", "lab_30_http\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_30a_http_deserialise_to_json", "lab_30a_http_deserialise_to_json\lab_30a_http_deserialise_to_json.csproj", "{8D90C4A4-874E-42F7-9AC2-976ABABB0FDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_31_api_code_first", "lab_31_api_code_first\lab_31_api_code_first.csproj", "{54C166D6-D5D3-4533-AD2A-3CA69223B8EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_31_api_code_first", "lab_31_api_code_first\lab_31_api_code_first.csproj", "{54C166D6-D5D3-4533-AD2A-3CA69223B8EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_32_entity_code_first", "lab_32_entity_code_first\lab_32_entity_code_first.csproj", "{BE35AF5F-A155-44D8-A5F2-046FA8743AD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_32_entity_code_first", "lab_32_entity_code_first\lab_32_entity_code_first.csproj", "{BE35AF5F-A155-44D8-A5F2-046FA8743AD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_33_xml", "lab_33_xml\lab_33_xml.csproj", "{DDF8ED08-AA7F-410F-BA99-6562AC99DBDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{BE35AF5F-A155-44D8-A5F2-046FA8743AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE35AF5F-A155-44D8-A5F2-046FA8743AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE35AF5F-A155-44D8-A5F2-046FA8743AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDF8ED08-AA7F-410F-BA99-6562AC99DBDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF8ED08-AA7F-410F-BA99-6562AC99DBDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF8ED08-AA7F-410F-BA99-6562AC99DBDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF8ED08-AA7F-410F-BA99-6562AC99DBDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

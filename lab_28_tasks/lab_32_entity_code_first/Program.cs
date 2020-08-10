@@ -15,8 +15,8 @@ namespace lab_32_entity_code_first
 
             using (var db = new UserDBContext())
             {
-                db.Database.EnsureDeleted();
-                db.Database.EnsureCreated();
+                //db.Database.EnsureDeleted();
+                //db.Database.EnsureCreated();
 
                 // add an Item
                 // Note autoincrement is on
@@ -35,3 +35,4 @@ namespace lab_32_entity_code_first
         }
     }
 }
+
