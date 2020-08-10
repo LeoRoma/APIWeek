@@ -14,10 +14,12 @@ namespace MusiAPIEntityCodeFirst
             List<Song> songs = new List<Song>();
             using (var db = new MusicContext())
             {
+                db.Database.EnsureDeleted();
+                db.Database.EnsureCreated();
+
                 artists = db.Artists.ToList();
                 songs = db.Songs.Include("Artist").ToList();
 
-                //artists.ForEach(artist => Console.WriteLine($"Name: {artist.ArtistName}, Song Title:{artist.}"));
                 songs.ForEach(song => Console.WriteLine($"Artist name: {song.Artist.ArtistName}, Song title: {song.Title}"));
             }
         }

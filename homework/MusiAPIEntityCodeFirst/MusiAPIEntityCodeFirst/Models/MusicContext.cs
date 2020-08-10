@@ -30,30 +30,18 @@ namespace MusiAPIEntityCodeFirst.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Artist>(entity =>
-            {
-                entity.HasKey(e => e.ArtistId)
-                    .HasName("PK__Artists__25706B5044C9D90B");
 
-                entity.Property(e => e.ArtistName).HasMaxLength(50);
+            modelBuilder.Entity<Artist>().HasData(new Artist { ArtistId = 4, ArtistName = "Iron Maiden" });
+            modelBuilder.Entity<Artist>().HasData(new Artist { ArtistId = 5, ArtistName = "ACDC" });
+            modelBuilder.Entity<Artist>().HasData(new Artist { ArtistId = 6, ArtistName = "Metallica" });
 
-                entity.Property(e => e.BirthPlace).HasMaxLength(50);
-            });
+            modelBuilder.Entity<Song>().HasData(new Song { SongId = 4, Title = "Fear of The Dark", ArtistId = 4 });
+            modelBuilder.Entity<Song>().HasData(new Song { SongId = 5, Title = "Thunderstruck", ArtistId = 5 });
+            modelBuilder.Entity<Song>().HasData(new Song { SongId = 6, Title = "Master of Puppet", ArtistId = 6 });
 
-            modelBuilder.Entity<Song>(entity =>
-            {
-                entity.HasKey(e => e.SongId)
-                    .HasName("PK__Songs__12E3D6971BC9FBA0");
-
-                entity.Property(e => e.Title).HasMaxLength(50);
-
-                entity.HasOne(d => d.Artist)
-                    .WithMany(p => p.Songs)
-                    .HasForeignKey(d => d.ArtistId)
-                    .HasConstraintName("FK__Songs__ArtistId__286302EC");
-            });
 
             OnModelCreatingPartial(modelBuilder);
+
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
