@@ -31,7 +31,8 @@ namespace MusicAPICodeFirst.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Song>> GetSong(int id)
         {
-            var song = await _context.Songs.FindAsync(id);
+            var song = await _context.Songs.Include("Artist").SingleOrDefaultAsync(s => s.ArtistId == id);
+            
 
             if (song == null)
             {
