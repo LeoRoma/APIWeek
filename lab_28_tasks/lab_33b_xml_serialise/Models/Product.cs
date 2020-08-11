@@ -7,7 +7,7 @@ namespace lab_33b_xml_serialise.Models
     [Serializable]
     public partial class Product
     {
-        [XmlElement("ProductID")]
+        [XmlElement("ProductId")]
         public int ProductId { get; set; }
 
         [XmlElement("ProductName")]
