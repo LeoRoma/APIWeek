@@ -52,7 +52,7 @@ namespace lab_33b_xml_serialise
                 xmlProductsList = (Products)serializer.Deserialize(reader);
             }
             Console.WriteLine("\n\nProducts Deserialised");
-            xmlProductsList.ProductsList.ForEach(p => Console.WriteLine($"{p.ProductId} {p.ProductName} {p.UnitPrice}"));
+            xmlProductsList.ProductsList.ForEach(p => Console.WriteLine($"{p.ProductId, -5} {p.ProductName, -40} {p.UnitPrice}"));
         }
     }
 
