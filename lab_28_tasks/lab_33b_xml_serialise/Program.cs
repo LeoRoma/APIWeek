@@ -43,16 +43,16 @@ namespace lab_33b_xml_serialise
             // Assume data being sent to us over the internet - it can be very large so 
             // safest to "Stream" data from internet
 
+            var xmlProductsList = new Products();
+
             using (var reader = new StreamReader("Products.xml"))
             {
                 // Deserialise from xml to Northwind Products
                 var serializer = new XmlSerializer(typeof(Products));
-                var xmlProductsList = (Products)serializer.Deserialize(reader);
-                foreach (var item in xmlProductsList.ToString())
-                {
-                    Console.WriteLine(item);
-                }
+                xmlProductsList = (Products)serializer.Deserialize(reader);
             }
+            Console.WriteLine("\n\nProducts Deserialised");
+            xmlProductsList.ProductsList.ForEach(p => Console.WriteLine($"{p.ProductId} {p.ProductName} {p.UnitPrice}"));
         }
     }
 
@@ -60,6 +60,6 @@ namespace lab_33b_xml_serialise
     public class Products
     {
         [XmlElement("Product")]
-        public List<Product> XMLProductsFromBrazil { get; set; }
+        public List<Product> ProductsList { get; set; }
     }
 }
