@@ -9,6 +9,7 @@ using SpartaGlobalAPI.Models;
 
 namespace SpartaGlobalAPI.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class StudentsController : ControllerBase
