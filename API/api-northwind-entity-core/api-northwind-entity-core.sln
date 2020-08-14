@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-northwind-entity-core", "api-northwind-entity-core\api-northwind-entity-core.csproj", "{88E68A32-F875-4D33-8A85-8511482A54AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-northwind-entity-core", "api-northwind-entity-core\api-northwind-entity-core.csproj", "{88E68A32-F875-4D33-8A85-8511482A54AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "northwind-api-client", "northwind-api-client\northwind-api-client.csproj", "{36B1506D-F7EC-4BE0-9CF6-7009BF26F42F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "northwind-api-client", "northwind-api-client\northwind-api-client.csproj", "{36B1506D-F7EC-4BE0-9CF6-7009BF26F42F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvc_core_website_demo", "mvc_core_website_demo\mvc_core_website_demo.csproj", "{423B60DA-0F19-4986-B218-A66C960E414B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{36B1506D-F7EC-4BE0-9CF6-7009BF26F42F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36B1506D-F7EC-4BE0-9CF6-7009BF26F42F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36B1506D-F7EC-4BE0-9CF6-7009BF26F42F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{423B60DA-0F19-4986-B218-A66C960E414B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{423B60DA-0F19-4986-B218-A66C960E414B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{423B60DA-0F19-4986-B218-A66C960E414B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{423B60DA-0F19-4986-B218-A66C960E414B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
