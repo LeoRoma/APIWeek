@@ -29,3 +29,13 @@
 - As a user, I would like to have a nice UI experience, so I can easily understand how the program works
 - [x] Make a nice UI
 
+## Screenshots
+
+### Courses
+
+![Image screenshot](./Screenshots/courses.png)
+
+### Students
+
+
+![Image screenshot](./Screenshots/students.png)
