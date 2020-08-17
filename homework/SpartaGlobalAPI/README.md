@@ -33,7 +33,7 @@
 
 ### Courses
 
-![Image screenshot](./Screenshots/courses.png)
+![Image screenshot](./Screenshots/course.png)
 
 ### Students
 
