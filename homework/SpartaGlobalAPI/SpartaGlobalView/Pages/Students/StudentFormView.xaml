@@ -9,7 +9,7 @@
       Title="StudentFormView">
 
     <Grid Background="LightGray">
-        <Label Content="Course Form" Foreground="Black" FontSize="35" HorizontalAlignment="Center" Name="lblTitle" VerticalAlignment="Top" Margin="0,20,0,0" />
+        <Label Content="Student Form" Foreground="Black" FontSize="35" HorizontalAlignment="Center" Name="lblTitle" VerticalAlignment="Top" Margin="0,20,0,0" />
         <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="720">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
