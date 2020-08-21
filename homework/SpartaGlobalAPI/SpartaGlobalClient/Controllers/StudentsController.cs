@@ -6,19 +6,20 @@ using System.Linq;
 using System.Net.Http;
 
 using SpartaGlobalClient.Models;
+using SpartaGlobalAPI.Models;
 
 namespace SpartaGlobalClient.Controllers
 {
     public class StudentsController
     {
-        public Student SelectedStudent { get; set; }
+        public DisplayStudentsWithCourseName SelectedStudent { get; set; }
         public Course SelectedCourse { get; set; }
 
         Uri urlStudents = new Uri("https://localhost:44355/api/Students");
 
         public Student student = new Student();
 
-        public List<Student> students = new List<Student>();
+        public List<DisplayStudentsWithCourseName> students = new List<DisplayStudentsWithCourseName>();
         public List<Student> studentsByCourse = new List<Student>();
 
         public async void GetStudentsAsync()
@@ -26,7 +27,7 @@ namespace SpartaGlobalClient.Controllers
             using (var httpClient = new HttpClient())
             {
                 var data = await httpClient.GetStringAsync(urlStudents);
-                students = JsonConvert.DeserializeObject<List<Student>>(data);
+                students = JsonConvert.DeserializeObject<List<DisplayStudentsWithCourseName>>(data);
             }
         }
 
@@ -35,7 +36,7 @@ namespace SpartaGlobalClient.Controllers
             using (var httpClient = new HttpClient())
             {
                 var data = httpClient.GetStringAsync(urlStudents);
-                students = JsonConvert.DeserializeObject<List<Student>>(data.Result);
+                students = JsonConvert.DeserializeObject<List<DisplayStudentsWithCourseName>>(data.Result);
             }
         }
 
@@ -43,7 +44,7 @@ namespace SpartaGlobalClient.Controllers
         {
             GetStudents();
             student = null;
-            student = students.Where(s => s.StudentId == studentId).FirstOrDefault();
+            //student = students.Where(s => s.StudentId == studentId).FirstOrDefault();
             if (student != null)
             {
                 return true;
@@ -65,8 +66,8 @@ namespace SpartaGlobalClient.Controllers
 
         public async void PostStudentAsync(Student newStudent)
         {
-            if (!StudentExists(newStudent.StudentId))
-            {
+            //if (!StudentExists(newStudent.StudentId))
+            //{
                 string newStudentAsJson = JsonConvert.SerializeObject(newStudent, Formatting.Indented);
 
                 var httpContent = new StringContent(newStudentAsJson);
@@ -82,11 +83,11 @@ namespace SpartaGlobalClient.Controllers
                         Console.WriteLine($"Record {newStudent.StudentName} successfully added");
                     }
                 }
-            }
-            else
-            {
-                Console.WriteLine($"Student with Name: {newStudent.StudentName} already exists, can't create a new Student");
-            }
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"Student with Name: {newStudent.StudentName} already exists, can't create a new Student");
+            //}
         }
 
         public void PostStudent(string name, int courseId, string email)
@@ -97,8 +98,8 @@ namespace SpartaGlobalClient.Controllers
                 CourseId = courseId,
                 Email = email
             };
-            if (!StudentExists(newStudent.StudentId))
-            {
+            //if (!StudentExists(newStudent.StudentId))
+            //{
                 string newStudentAsJson = JsonConvert.SerializeObject(newStudent, Formatting.Indented);
 
                 var httpContent = new StringContent(newStudentAsJson);
@@ -114,17 +115,17 @@ namespace SpartaGlobalClient.Controllers
                         Console.WriteLine($"Record {newStudent.StudentName} successfully added");
                     }
                 }
-            }
-            else
-            {
-                Console.WriteLine($"Student with Name: {newStudent.StudentName} already exists, can't create a new Student");
-            }
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"Student with Name: {newStudent.StudentName} already exists, can't create a new Student");
+            //}
         }
 
         public async void DeleteStudentAsync(int studentId)
         {
-            if (StudentExists(studentId) == true)
-            {
+            //if (StudentExists(studentId) == true)
+            //{
                 using (var httpClient = new HttpClient())
                 {
                     var httpResponse = await httpClient.DeleteAsync($"{urlStudents}/{studentId}");
@@ -133,17 +134,17 @@ namespace SpartaGlobalClient.Controllers
                         Console.WriteLine($"Student {studentId} successfully deleted");
                     }
                 }
-            }
-            else
-            {
-                Console.WriteLine($"A Student with ID: {studentId} doesn't exists, can't delete");
-            }
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"A Student with ID: {studentId} doesn't exists, can't delete");
+            //}
         }
 
         public void DeleteStudent(int studentId)
         {
-            if (StudentExists(studentId) == true)
-            {
+            //if (StudentExists(studentId) == true)
+            //{
                 using (var httpClient = new HttpClient())
                 {
                     var httpResponse = httpClient.DeleteAsync($"{urlStudents}/{studentId}");
@@ -152,11 +153,11 @@ namespace SpartaGlobalClient.Controllers
                         Console.WriteLine($"Student {studentId} successfully deleted");
                     }
                 }
-            }
-            else
-            {
-                Console.WriteLine($"A Student with ID: {studentId} doesn't exists, can't delete");
-            }
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"A Student with ID: {studentId} doesn't exists, can't delete");
+            //}
         }
 
         public async void UpdateStudentAsync(Student updateStudent)
@@ -197,8 +198,8 @@ namespace SpartaGlobalClient.Controllers
                 Email = email,
                 CourseId = courseId
             };
-            if (StudentExists(updateStudent.StudentId) == true)
-            {
+            //if (StudentExists(updateStudent.StudentId) == true)
+            //{
                 string updateStudentAsJson = JsonConvert.SerializeObject(updateStudent, Formatting.Indented);
 
                 // Convert this to HTTP
@@ -216,34 +217,17 @@ namespace SpartaGlobalClient.Controllers
                         Console.WriteLine($"Student {updateStudent.StudentId} successfully updated");
                     }
                 }
-            }
-            else
-            {
-                Console.WriteLine($"A student with ID: {updateStudent.StudentId} doesn't exists, can't update");
-            }
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"A student with ID: {updateStudent.StudentId} doesn't exists, can't update");
+            //}
         }
 
         public void SetSelectedStudent(object selectedStudent)
         {
-            SelectedStudent = (Student)selectedStudent;
+            SelectedStudent = (DisplayStudentsWithCourseName)selectedStudent;
         }
 
-        public void SetSelectedCourse(object selectedCourse)
-        {
-            SelectedCourse = (Course)selectedCourse;
-        }
-
-        public List<Student> GetStudentsByCourse()
-        {
-            
-            foreach (var student in students)
-            {
-                if (SelectedCourse.CourseId == student.CourseId)
-                {
-                    studentsByCourse.Add(student);
-                }
-            }
-            return studentsByCourse;
-        }
     }
 }

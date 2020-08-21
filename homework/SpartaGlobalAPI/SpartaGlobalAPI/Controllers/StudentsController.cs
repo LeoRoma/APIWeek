@@ -23,9 +23,19 @@ namespace SpartaGlobalAPI.Controllers
 
         // GET: api/Students
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Student>>> GetStudents()
+        public async Task<ActionResult<IEnumerable<DisplayStudentsWithCourseName>>> GetStudents()
         {
-            return await _context.Students.ToListAsync();
+            var returnObject =
+               (from student in _context.Students
+                select new DisplayStudentsWithCourseName()
+                {
+                    StudentId = student.StudentId,
+                    StudentName = student.StudentName,
+                    Email = student.Email,
+                    CourseName = student.Course.CourseName,
+                    Score = student.Score
+                }).ToListAsync<DisplayStudentsWithCourseName>();
+            return await returnObject;
         }
 
         // GET: api/Students/5
