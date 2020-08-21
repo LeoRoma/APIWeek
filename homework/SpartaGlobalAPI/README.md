@@ -38,4 +38,4 @@
 ### Students
 
 
-![Image screenshot](./Screenshots/students.png)
+![Image screenshot](./Screenshots/student.png)
